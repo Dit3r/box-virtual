@@ -56,13 +56,23 @@ $uname=$_SESSION['username'];
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
-					<div class="left-top">
-						<a class="new-btn-d br-2" href="#"><span><i class="fa fa-user-o" aria-hidden="true"></i> Bienvenido: <?php echo "$uname"; ?></span></a>
-						<div class="mail-b"><a href="logout.php"><i class="fa fa-power-off" aria-hidden="true"></i> Cerrar Sesion</a></div>
-					</div>
-				</div>
-				
-					
+                    
+					   <div class="left-top">
+						<a class="new-btn-d br-2" href="#"><span><i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Bienvenido: <?php echo "$uname"; ?></span></a>
+					   </div>
+                    
+                </div>
+                    
+                <div class="col-lg-4">
+                    
+                       <div class="left-top">
+                        <a href="logout.php" class="new-btn-d br-2" ><span><i class="fa fa-power-off fa-2x" aria-hidden="true"></i> Cerrar Sesion
+                        </span></a>
+                       </div>
+                        
+                </div>
+                    
+   		
 			</div>
 		</div>
 	</div>
@@ -166,10 +176,11 @@ $uname=$_SESSION['username'];
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-6 col-md-6">
+				<div class="col-md-12">
 					<div class="well-block">
                         <div class="well-title">
-                            <h2>Seleccionar datos del establecimiento</h2>
+                            <h2>Seleccionar datos del establecimiento </h2>
+                            
                         </div>
                         <form>
                             <!-- Form start -->
@@ -179,7 +190,11 @@ $uname=$_SESSION['username'];
                                 <!-- Select Establecimienti -->
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label" for="establecimiento">Establecimiento</label>
+                                      <h3>
+                                          <i class="fa fa-hospital-o fa-2x" aria-hidden="true">
+                                          </i>   Establecimiento 
+                                             
+                                      </h3> 
                                         <select id="establecimiento" name="establecimiento" class="form-control">
                                             <option value="Cesfam">Cesfam</option>
 											<option value="Cecof">Cecof</option>
@@ -192,7 +207,12 @@ $uname=$_SESSION['username'];
                                 <!-- Select Some -->
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label" for="sector">Sector SOME</label>
+                                        <h3>
+                                       
+                                            <i class="fa fa-vcard-o fa-2x" aria-hidden="true">
+                                            </i>    Sector SOME 
+                                        
+                                        </h3> 
                                         <select id="sector" name="sector" class="form-control">
                                             <option value="Rojo">Rojo</option>
 											<option value="Verde">Verde</option>
@@ -213,29 +233,8 @@ $uname=$_SESSION['username'];
                         <!-- form end -->
                     </div>
 				</div>
+               
                 
-				<div class="col-lg-6 col-md-6">
-					<div class="well-block">
-                        <div class="well-title">
-                            <h2>Instrucciones </h2>
-                        </div>
-                        <div class="feature-block">
-                            <div class="feature feature-blurb-text">
-                                <h4 class="feature-title">Instrucciones 1</h4>
-                                <div class="feature-content">
-                                    <p>Agregar instrucciones 1.</p>
-                                </div>
-                            </div>
-                            <div class="feature feature-blurb-text">
-                                <h4 class="feature-title">Instrucciones 2</h4>
-                                <div class="feature-content">
-                                    <p>Agregar instrucciones 2. </p>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-				</div>
 			</div>
 		</div>
 	</div>
