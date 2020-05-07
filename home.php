@@ -195,15 +195,42 @@ $uname=$_SESSION['username'];
                                           </i>   Establecimiento 
                                              
                                       </h3> 
-                                        <select id="establecimiento" name="establecimiento" class="form-control">
-                                            <option value="Cesfam">Cesfam</option>
+                                        
+                                        
+                                        <label>Region</label>
+                                        
+                                        <select id="region" name="region" class="form-control" onchange="cambiaComuna()">
+                                       <!--     <option value="Cesfam">Cesfam</option>
 											<option value="Cecof">Cecof</option>
 											<option value="Consultorio">Consultorio</option>
-											<option value="Cosam">Cosam</option>
+											<option value="Cosam">Cosam</option>  -->
 										
                                         </select>
+                                        
+                                         <label>Comuna</label>
+                                        <select id="comuna" name="comuna" class="form-control" onchange="cambiaEstablecimiento()">
+                                       <!--     <option value="Cesfam">Cesfam</option>
+											<option value="Cecof">Cecof</option>
+											<option value="Consultorio">Consultorio</option>
+											<option value="Cosam">Cosam</option>  -->
+										
+                                        </select>
+                                        
+                                        
+                                         <label>Nombre</label>
+                                        <select id="establecimiento" name="establecimiento" class="form-control">
+                                       <!--     <option value="Cesfam">Cesfam</option>
+											<option value="Cecof">Cecof</option>
+											<option value="Consultorio">Consultorio</option>
+											<option value="Cosam">Cosam</option>  -->
+										
+                                        </select>
+                                        
+                                        
+                                        
                                     </div>
                                 </div>
+                                
                                 <!-- Select Some -->
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -214,10 +241,10 @@ $uname=$_SESSION['username'];
                                         
                                         </h3> 
                                         <select id="sector" name="sector" class="form-control">
-                                            <option value="Rojo">Rojo</option>
+                                        <!--    <option value="Rojo">Rojo</option>
 											<option value="Verde">Verde</option>
 											<option value="Azul">Azul</option>
-											<option value="Amarillo">Amarillo</option>
+											<option value="Amarillo">Amarillo</option>  -->
 										
                                         </select>
                                     </div>
