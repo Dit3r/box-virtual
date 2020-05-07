@@ -197,7 +197,7 @@ $uname=$_SESSION['username'];
                                       </h3> 
                                         
                                         
-                                        <label>Region</label>
+                                        <label>Región</label>
                                         
                                         <select id="region" name="region" class="form-control" onchange="cambiaComuna()">
                                        <!--     <option value="Cesfam">Cesfam</option>

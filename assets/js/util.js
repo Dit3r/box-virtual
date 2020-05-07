@@ -40,9 +40,12 @@ $(document).ready(function () {
             $("#region").append(option);
 
         }); // close each()
-
+        
+        cambiaComuna();
+        
     }); // close getJSON()
-
+    
+    
 });
 
 
@@ -67,6 +70,8 @@ function cambiaComuna(){
             }
 
         }); // close each()
+        
+        cambiaEstablecimiento();
     }); // close getJSON()
 }
 
