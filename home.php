@@ -22,7 +22,7 @@ $uname=$_SESSION['username'];
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>Box Virtual Responsivo</title>  
+    <title>Box Virtual</title>  
    
 
     <!-- Site Icons -->
@@ -83,19 +83,17 @@ $uname=$_SESSION['username'];
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
 				<a class="navbar-brand" href="home.php"><img src="assets/images/logo.png" alt="image"></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
 					<span></span>
 				</button>
+			<!-- inicio barra home -->	
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
                         
                         <li><a class="nav-link" href="#home">Home</a></li>
-						<li><a class="nav-link" href="#estableciemientos">Establecimientos</a></li>
-                        <li><a class="nav-link" href="#sala_espera">Sala de espera</a></li>
-						<li><a class="nav-link" href="#box_virtual">Box virtual</a></li>
-                        
+						       
                     </ul>
                 </div>
             </div>
@@ -125,10 +123,12 @@ $uname=$_SESSION['username'];
 							<div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></div>
 								<h3 class="title">Establecimiento</h3>
+                                
 								<p class="description">
-								Encuentra tu establecimiento y sector Some.
+								 Encuentra tu establecimiento y sector Some.
 								</p>
-								<a href="#estableciemientos" class="new-btn-d br-2">OK</a>
+                              <button onclick="mostrarEstablecimientos()"  type="button" class="btn btn-primary">Comenzar</button>
+							<!--	<a onclick="mostrarEstablecimientos()" class="new-btn-d br-2">Comenzar > </a> -->
 							</div>
 						</div>
 						<div class="item">
@@ -137,9 +137,11 @@ $uname=$_SESSION['username'];
 								<h3 class="title">Sala de Espera</h3>
 								<p class="description">
 									Sala de espera de Atencion Medica.
-                                    <br> <br/>
+                                    <br>         
+                                    <br/>
 								</p>
-								<a href="#sala_espera" class="new-btn-d br-2">OK</a>
+          
+                                  <button disabled  type="button" class="btn btn-secondary">Paso 2</button>
 							</div>
 						</div>
 						<div class="item">
@@ -148,15 +150,13 @@ $uname=$_SESSION['username'];
 								<h3 class="title">Acceso Virtual</h3>
 								<p class="description">
 									Ingreso a la atencion Medica.
-                                    <br> <br/>
+                                    <br> 
+                                    <br/>
 								</p>
-								<a href="#box_virtual" class="new-btn-d br-2">OK</a>
+								   <button disabled  type="button" class="btn btn-secondary">Paso 3</button>
 							</div>
 						</div>
-						
-						
-				
-				
+	
 					</div>
 				</div>
 			</div>			
@@ -165,288 +165,25 @@ $uname=$_SESSION['username'];
 	<!-- End home -->
 	
 	<!-- Start form Estableciemientos  -->
-	<div id="estableciemientos" class="appointment-main">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="title-box">
-						<h2> Formulario Establecimiento</h2>
-						
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="well-block">
-                        <div class="well-title">
-                            <h2>Seleccionar datos del establecimiento </h2>
-                            
-                        </div>
-                        <form>
-                            <!-- Form start -->
-                            <div class="row">
-                             
-                              
-                                <!-- Select Establecimienti -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                      <h3>
-                                          <i class="fa fa-hospital-o fa-2x" aria-hidden="true">
-                                          </i>   Establecimiento 
-                                             
-                                      </h3> 
-                                        
-                                        
-                                        <label>Región</label>
-                                        
-                                        <select id="region" name="region" class="form-control" onchange="cambiaComuna()">
-                                       <!--     <option value="Cesfam">Cesfam</option>
-											<option value="Cecof">Cecof</option>
-											<option value="Consultorio">Consultorio</option>
-											<option value="Cosam">Cosam</option>  -->
-										
-                                        </select>
-                                        
-                                         <label>Comuna</label>
-                                        <select id="comuna" name="comuna" class="form-control" onchange="cambiaEstablecimiento()">
-                                       <!--     <option value="Cesfam">Cesfam</option>
-											<option value="Cecof">Cecof</option>
-											<option value="Consultorio">Consultorio</option>
-											<option value="Cosam">Cosam</option>  -->
-										
-                                        </select>
-                                        
-                                        
-                                         <label>Nombre</label>
-                                        <select id="establecimiento" name="establecimiento" class="form-control">
-                                       <!--     <option value="Cesfam">Cesfam</option>
-											<option value="Cecof">Cecof</option>
-											<option value="Consultorio">Consultorio</option>
-											<option value="Cosam">Cosam</option>  -->
-										
-                                        </select>
-                                        
-                                        
-                                        
-                                    </div>
-                                </div>
-                                
-                                <!-- Select Some -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <h3>
-                                       
-                                            <i class="fa fa-vcard-o fa-2x" aria-hidden="true">
-                                            </i>    Sector SOME 
-                                        
-                                        </h3> 
-                                        <select id="sector" name="sector" class="form-control">
-                                        <!--    <option value="Rojo">Rojo</option>
-											<option value="Verde">Verde</option>
-											<option value="Azul">Azul</option>
-											<option value="Amarillo">Amarillo</option>  -->
-										
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Button -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <button id="confirmar-establecimiento" name="confirmar-establecimiento" class="new-btn-d br-2">Confirmar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- form end -->
-                    </div>
-				</div>
-               
-                
-			</div>
-		</div>
+	<div id="establecimientos" class="appointment-main">
+        
 	</div>
 	<!-- End Estableciemeintos -->
-	
-    
+	   
     	<!-- Start form Sala de espera  -->
 	<div id="sala_espera" class="appointment-main">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="title-box">
-						<h2> Formulario Medico</h2>
-						
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6 col-md-6">
-					<div class="well-block">
-                        <div class="well-title">
-                            <h2>Por favor rellenar formulario del motivo  de su consulta</h2>
-                        </div>
-                        <form>
-                            <!-- Form start -->
-                            <div class="row">
-                             
-                              
-                                <!-- Select Establecimienti -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="control-label" for="enfermedad">¿Presenta alguna de estas enfermedades?</label>
-                                        <select id="enfermedad" name="enfermedad" class="form-control">
-                                            <option value="Diabetes">Diabetes</option>
-											<option value="Hipertension">Hipertensión</option>
-                                            <option value="Cardiovascular">Cardiovascular</option>
-											<option value="Asma">Asma</option>
-											<option value="Ninguna" selected>Ninguna</option>
-										
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Select Some -->
-                                 <!-- Select Establecimienti -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="control-label" for="alergico">¿Alergico a algun medicamento?</label>
-                                        <select id="alergico" name="alergico" class="form-control">
-                                            <option value="Si">Si</option>
-											<option value="No" selected>No</option>
-											
-										
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Select Some -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                       <label class="control-label" for="medicamento">Si es alergico. Nombre el medicamento</label>
-                                        <input id="medicamento" name="medicamento" type="text" placeholder="Nombre del medicamento" class="form-control input-md">
-                                       
-                                    </div>
-                                </div>
-                                
-                                 <!-- Select Some -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                       <label class="control-label" >Breve detalle motivo de la consulta</label>
-                                          <textarea required id="motivo" placeholder="ingrese motivo" class="form-control" ></textarea>     
-                                    </div>
-                                </div>
-                                <!-- Button -->
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <button id="enviar-motivo" onclick="irBox()" name="enviar-motivo"class="new-btn-d br-2">Enviar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- form end -->
-                    </div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="well-block">
-                        
-                        <div class="well-title">
-                            <h2>Recordatorios e información </h2>
-                            <br><br/>
- 
-                     <h3 class="title">Sus asuntos pendientes</h3>
-                <div class="col-md-5 col-sm-6">
-					<div class="box-gallery">
-						<img src="assets/images/gallery-01.jpg" alt="">
-						<div class="box-content" id="asuntos-pendientes">
-				 <h3 class="title"><button class="btn btn-primary" type="button"  data-toggle="modal" data-target="#pendientes">Ver</button></h3>
-						</div>
-					</div>
-				</div>
-                            
-                    <h3 class="title">Libro Sugerencias</h3>
-				<div class="col-md-5 col-sm-6">
-					<div class="box-gallery">
-						<img src="assets/images/gallery-02.jpg" alt="">
-						<div class="box-content" id="libro-sugerencias">		
-				<h3 class="title"><button class="btn btn-primary" type="button"  data-toggle="modal" data-target="#libro-sugerencia">Ir</button></h3>
-							<ul class="icon">
-														
-							</ul>
-						</div>
-					</div>
-				</div>
-                           
-                    <h3 class="title">Información general de utilidad</h3>        
-                <div class="col-md-5 col-sm-6">
-					<div class="box-gallery">
-						<img src="assets/images/gallery-03.jpg" alt="">
-						<div class="box-content">		
-						<a href="https://www.minsal.cl/" target="_blank" ><h3 class="title"  >Ver</h3></a>	
-							<ul class="icon">
-													
-							</ul>
-						</div>
-					</div>
-				</div>
-                        
-                    </div>
-				</div>
-			</div>
-		</div>
+        
 	</div>
 	<!-- End Sala de espera -->
     
-    
-    
-	
 	<!-- Start Box-virtual -->
 	<div id="box_virtual" class="team-box" >
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="title-box">
-						<h2>Box Virtual</h2>
-						<p>Se efectuara una video LLamada. </p>
-					</div>
-				</div>
-			</div>
-			
-            
-			<div class="row">
-                <div class="col-md-4 col-sm-6">
-                  <!--div inhabilitado-->
-                </div>
-
-                <div class="col-md-4 col-sm-6" id="llamada" >
-                    <div class="our-team">
-                        <div class="pic">
-                            <img src="assets/images/img-2.jpg" alt="">
-                        </div>
-                        <div class="team-content">
-                            <h3 class="title">Doctor</h3>
-                            <span class="post">Llamada no disponible</span>
-                        <ul class="social">
-                              <li>  <a onclick="recargar()"><i class="fa fa-microphone-slash" aria-hidden="true" title='camara bloqueada'></i></a>   
-                                </li>
-                            </ul>  
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-4 col-sm-6">
-                  <!--div inhabilitado-->
-                </div>
-                
-                
-            </div>
-			
-		</div>
+        
 	</div>
 	
 	<!-- End Team -->
 	
 
-	
-	
 	<!-- End Contact -->
 	
 	<!-- Start Subscribe -->
