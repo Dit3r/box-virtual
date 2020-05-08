@@ -82,10 +82,8 @@ function mostrarBox(){
      $("#motivo").val('').focus();
 
     } else {
-              $("#navbar-wd").html("");
-                  cargaBarraBoxVirtual();
-        
-                  
+             $("#navbar-wd").html("");
+             cargaBarraBoxVirtual();    
        /// Invocamos a nuestro script PHP
     $.post("php/box_virtual.php",function(data){
        /// Ponemos la respuesta de nuestro script en el DIV recargado

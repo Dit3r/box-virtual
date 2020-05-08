@@ -86,7 +86,6 @@ $uname=$_SESSION['username'];
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
-					<span></span>
 				</button>
 			<!-- inicio barra home -->	
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
@@ -101,8 +100,8 @@ $uname=$_SESSION['username'];
 	</header>
 	<!-- End header -->
 	            
-	<!-- Start Blog -->
-	<div id="blog" class="blog-box">
+	<!-- Start home -->
+	<div id="home" class="blog-box">
 		<div class="container">
             
             <div class="col-lg-12">
@@ -161,6 +160,8 @@ $uname=$_SESSION['username'];
                 
                 
 			</div>
+            
+        
 		</div>
 	</div>
 	<!-- End Home -->
