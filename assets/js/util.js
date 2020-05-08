@@ -51,6 +51,7 @@ function mostrarSalaEspera(){
     
      $("#navbar-wd").html("");
       cargaBarraSalaEspera();
+    $("#cargacontenido").html("");
     
        /// Invocamos a nuestro script PHP
     $.post("php/sala_de_espera.php",function(data){
@@ -59,10 +60,8 @@ function mostrarSalaEspera(){
         
     }); 
     
-     $("#cargacontenido").html("");
-    
-    
-    
+     
+        
        location.href="#cargacontenido";
  
     
@@ -77,24 +76,24 @@ function mostrarBox(){
   if ($('#motivo').val().trim() === '') {
       
      alert('Debe indicar el motivo');
-     location.href="#sala_espera";
+     location.href="#cargacontenido";
       
      $("#motivo").val('').focus();
 
     } else {
              $("#navbar-wd").html("");
-             cargaBarraBoxVirtual();    
+             cargaBarraBoxVirtual();  
+        $("#cargacontenido").html("");
+        
        /// Invocamos a nuestro script PHP
     $.post("php/box_virtual.php",function(data){
        /// Ponemos la respuesta de nuestro script en el DIV recargado
     $("#cargacontenido").html(data);
     });  
-                 $("#cargacontenido").html("");
-        
-        
-                 location.href="#cargacontenido";
-               }
-            }
+                 
+          location.href="#cargacontenido";
+        }
+    }
 
 
 function recargarLlamada(){   

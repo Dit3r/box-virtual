@@ -86,6 +86,7 @@ $uname=$_SESSION['username'];
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
+					<span></span>
 				</button>
 			<!-- inicio barra home -->	
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
@@ -104,6 +105,7 @@ $uname=$_SESSION['username'];
 	<div id="home" class="blog-box">
 		<div class="container">
             
+            <div class="row">
             <div class="col-lg-12">
 					<div class="title-box">
 						<h2>Home</h2>
@@ -112,7 +114,7 @@ $uname=$_SESSION['username'];
 					</div>
               
 				</div>
-            
+            </div>
 			
 			<div class="row">
 				<div class="col-lg-4 col-md-6 col-sm-12">
@@ -123,7 +125,8 @@ $uname=$_SESSION['username'];
 								<p class="description">
 								 Encuentre su establecimiento y sector SOME.
 								</p>
-                              <button onclick="mostrarEstablecimientos()"  type="button" class="btn btn-primary">Comenzar</button>
+                               <button disabled  type="button" class="btn btn-secondary">Paso 1</button>
+                              
 						
 							</div>
 				</div>
@@ -157,6 +160,10 @@ $uname=$_SESSION['username'];
 							</div>
 				</div>
                 
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                <button onclick="mostrarEstablecimientos()"  type="button" class="btn btn-primary">Comenzar</button>
+                </div>
+                
                 
                 
 			</div>
@@ -170,7 +177,7 @@ $uname=$_SESSION['username'];
 	<!-- Start div Carga contenido  -->
 	<div id="cargacontenido" class="appointment-main">
         
-        
+       
 	</div>
 	<!-- End div Carga contenido  -->
 	   
