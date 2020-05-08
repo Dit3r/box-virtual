@@ -4,7 +4,7 @@
 				<div class="col-lg-12">
 					<div class="title-box">
 						<h2>Box Virtual</h2>
-						<p>Se efectuara una video LLamada. </p>
+						<p>Se efectuará una video LLamada. </p>
 					</div>
 				</div>
 			</div>
@@ -22,7 +22,7 @@
                         </div>
                         <div class="team-content">
                             <h3 class="title">Doctor</h3>
-                            <span class="post">Llamada no disponible</span>
+                            <span class="title">Llamada no disponible</span>
                         <ul class="social">
                               <li>  <a onclick="recargarLlamada()"><i class="fa fa-microphone-slash" aria-hidden="true" title="camara bloqueada"></i></a>   
                                 </li>

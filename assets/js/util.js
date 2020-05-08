@@ -27,45 +27,43 @@ function cargaBarraBoxVirtual(){
 
 
 
-function mostrarEstablecimientos(){   
-       /// Aqui podemos enviarle alguna variable a nuestro script PHP
-    var variable_post="Mi texto recargado";
+function mostrarEstablecimientos(){  
+    $("#navbar-wd").html("");
+    cargaBarraEstabelcimientos();  
        /// Invocamos a nuestro script PHP
-    $.post("php/establecimientos.php", { variable: variable_post }, function(data){
+    $.post("php/establecimientos.php",function(data){
        /// Ponemos la respuesta de nuestro script en el DIV recargado
-    $("#establecimientos").html(data);
+    $("#cargacontenido").html(data);
         cargaRegion();
         cargaSome();
     });
     
-    $("#sala_espera").html("");
-    $("#box_virtual").html("");
+    $("#cargacontenido").html("");
     
-    $("#navbar-wd").html("");
-    cargaBarraEstabelcimientos();
     
-    location.href="#establecimientos";
+    location.href="#cargacontenido";
 }
 
 
 
 
-function mostrarSalaEspera(){   
-       /// Aqui podemos enviarle alguna variable a nuestro script PHP
-    var variable_post="Mi texto recargado";
-       /// Invocamos a nuestro script PHP
-    $.post("php/sala_de_espera.php", { variable: variable_post }, function(data){
-       /// Ponemos la respuesta de nuestro script en el DIV recargado
-    $("#sala_espera").html(data);
-        
-    }); 
-    
-     $("#establecimientos").html("");
+function mostrarSalaEspera(){  
     
      $("#navbar-wd").html("");
       cargaBarraSalaEspera();
     
-       location.href="#sala_espera";
+       /// Invocamos a nuestro script PHP
+    $.post("php/sala_de_espera.php",function(data){
+       /// Ponemos la respuesta de nuestro script en el DIV recargado
+    $("#cargacontenido").html(data);
+        
+    }); 
+    
+     $("#cargacontenido").html("");
+    
+    
+    
+       location.href="#cargacontenido";
  
     
 }
@@ -73,38 +71,38 @@ function mostrarSalaEspera(){
 
 
 
-
 function mostrarBox(){
     
+    
   if ($('#motivo').val().trim() === '') {
+      
      alert('Debe indicar el motivo');
      location.href="#sala_espera";
+      
      $("#motivo").val('').focus();
 
     } else {
-        
-                      /// Aqui podemos enviarle alguna variable a nuestro script PHP
-    var variable_post="Mi texto recargado";
-       /// Invocamos a nuestro script PHP
-    $.post("php/box_virtual.php", { variable: variable_post }, function(data){
-       /// Ponemos la respuesta de nuestro script en el DIV recargado
-    $("#box_virtual").html(data);
-    });  
-                 $("#sala_espera").html("");
-        
-                $("#navbar-wd").html("");
+              $("#navbar-wd").html("");
                   cargaBarraBoxVirtual();
         
-                 location.href="#box_virtual";
+                  
+       /// Invocamos a nuestro script PHP
+    $.post("php/box_virtual.php",function(data){
+       /// Ponemos la respuesta de nuestro script en el DIV recargado
+    $("#cargacontenido").html(data);
+    });  
+                 $("#cargacontenido").html("");
+        
+        
+                 location.href="#cargacontenido";
                }
             }
 
 
 function recargarLlamada(){   
-       /// Aqui podemos enviarle alguna variable a nuestro script PHP
-    var variable_post="Mi texto recargado";
+   
        /// Invocamos a nuestro script PHP
-    $.post("php/carga-div-video.php", { variable: variable_post }, function(data){
+    $.post("php/carga-div-video.php",function(data){
        /// Ponemos la respuesta de nuestro script en el DIV recargado
         
         $("#llamada").html(data);
@@ -179,7 +177,7 @@ function cambiaEstablecimiento(){
             if(valorInputCom == value.comuna) {
             
                  var option =
-                "<option value="+value.establecimiento+">"+value.establecimiento+" ,"+value.direccion+"</option>";
+            "<option value="+value.establecimiento+">"+value.establecimiento+" ,"+value.direccion+"</option>";
                 
             $("#establecimiento").append(option);
                 

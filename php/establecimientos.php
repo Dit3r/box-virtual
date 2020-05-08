@@ -50,7 +50,7 @@
                                         </select>
                                         
                                         
-                                         <label>Nombre , Direccion</label>
+                                         <label>Nombre , Dirección</label>
                                         <select id="establecimiento" name="establecimiento" class="form-control">
                                        <!--     <option value="Cesfam">Cesfam</option>
 											<option value="Cecof">Cecof</option>

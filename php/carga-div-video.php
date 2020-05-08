@@ -16,7 +16,7 @@ echo '
                         </div>
                         <div class="team-content">
                             <h3 class="title">Doctor</h3>
-                            <span class="post">Ir a video llamada</span>
+                            <span class="title">Ir a video llamada</span>
                             <ul class="social">
                                 <li><a href="" title="camara desbloqueada" onclick="recargar()"><i class="fa fa-video-camera" aria-hidden="true"></i></a></li>
                                 
@@ -34,7 +34,7 @@ else{
                         </div>
                         <div class="team-content">
                             <h2 class="title">Doctor</h2>
-                            <span class="post">Llamada no disponible</span>
+                            <span class="title">Llamada no disponible</span>
                             <ul class="social">
                                 <li><a onclick="recargar()"><i class="fa fa-microphone-slash" aria-hidden="true" title="camara bloqueada"></i></a></li>
                                 

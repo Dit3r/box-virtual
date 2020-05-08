@@ -100,90 +100,80 @@ $uname=$_SESSION['username'];
         </nav>
 	</header>
 	<!-- End header -->
-	
-	
-	
-
-	<!-- Home -->
-	<div id="home" class="services-box">
+	            
+	<!-- Start Blog -->
+	<div id="blog" class="blog-box">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
+            
+            <div class="col-lg-12">
 					<div class="title-box">
 						<h2>Home</h2>
 						<p>Box Virtual </p>
+                        
 					</div>
+              
 				</div>
-			</div>
+            
 			
 			<div class="row">
-				<div class="col-lg-12">
-					<div class="owl-carousel owl-theme">
-						<div class="item">
-							<div class="serviceBox">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					       <div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></div>
-								<h3 class="title">Establecimiento</h3>
+								<h2 class="title">Establecimiento</h2>
                                 
 								<p class="description">
-								 Encuentra tu establecimiento y sector Some.
+								 Encuentre su establecimiento y sector SOME.
 								</p>
                               <button onclick="mostrarEstablecimientos()"  type="button" class="btn btn-primary">Comenzar</button>
-							<!--	<a onclick="mostrarEstablecimientos()" class="new-btn-d br-2">Comenzar > </a> -->
+						
 							</div>
-						</div>
-						<div class="item">
-							<div class="serviceBox">
+				</div>
+                
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					
+                    	  <div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-plus-square" aria-hidden="true"></i></div>
-								<h3 class="title">Sala de Espera</h3>
+								<h2 class="title">Sala de Espera</h2>
 								<p class="description">
-									Sala de espera de Atencion Medica.
-                                    <br>         
-                                    <br/>
+									Sala de espera de Atención Medica.
+                                    
 								</p>
           
                                   <button disabled  type="button" class="btn btn-secondary">Paso 2</button>
 							</div>
-						</div>
-						<div class="item">
-							<div class="serviceBox">
+                    
+				</div>
+                
+                
+				<div class="col-lg-4 col-md-6 col-sm-12">
+				
+                         <div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-stethoscope" aria-hidden="true"></i></div>
-								<h3 class="title">Acceso Virtual</h3>
+								<h2 class="title">Acceso Box Virtual</h2>
 								<p class="description">
-									Ingreso a la atencion Medica.
-                                    <br> 
-                                    <br/>
+									Ingreso a la Atención Medica.
+
 								</p>
 								   <button disabled  type="button" class="btn btn-secondary">Paso 3</button>
 							</div>
-						</div>
-	
-					</div>
 				</div>
-			</div>			
+                
+                
+                
+			</div>
 		</div>
 	</div>
-	<!-- End home -->
+	<!-- End Home -->
+            
 	
-	<!-- Start form Estableciemientos  -->
-	<div id="establecimientos" class="appointment-main">
+	<!-- Start div Carga contenido  -->
+	<div id="cargacontenido" class="appointment-main">
+        
         
 	</div>
-	<!-- End Estableciemeintos -->
+	<!-- End div Carga contenido  -->
 	   
-    	<!-- Start form Sala de espera  -->
-	<div id="sala_espera" class="appointment-main">
-        
-	</div>
-	<!-- End Sala de espera -->
-    
-	<!-- Start Box-virtual -->
-	<div id="box_virtual" class="team-box" >
-        
-	</div>
 	
-	<!-- End Team -->
-	
-
 	<!-- End Contact -->
 	
 	<!-- Start Subscribe -->

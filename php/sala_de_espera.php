@@ -33,10 +33,10 @@
                                     </div>
                                 </div>
                                 <!-- Select Some -->
-                                 <!-- Select Establecimienti -->
+                                 <!-- Select alergia -->
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label" for="alergico">¿Alergico a algun medicamento?</label>
+                                        <label class="control-label" for="alergico">¿Alérgico a algun medicamento?</label>
                                         <select id="alergico" name="alergico" class="form-control">
                                             <option value="Si">Si</option>
 											<option value="No" selected>No</option>
@@ -48,7 +48,7 @@
                                 <!-- Select Some -->
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                       <label class="control-label" for="medicamento">Si es alergico. Nombre el medicamento</label>
+                                       <label class="control-label" for="medicamento">Si es alérgico. Nombre el medicamento</label>
                                         <input id="medicamento" name="medicamento" type="text" placeholder="Nombre del medicamento" class="form-control input-md">
                                        
                                     </div>
@@ -58,7 +58,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                        <label class="control-label" >Breve detalle motivo de la consulta</label>
-                                          <textarea required id="motivo" placeholder="ingrese motivo" class="form-control" ></textarea>     
+                                          <textarea required id="motivo" placeholder="Ingrese motivo" class="form-control" ></textarea>     
                                     </div>
                                 </div>
                                 <!-- Button -->
