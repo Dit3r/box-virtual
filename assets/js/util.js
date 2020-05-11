@@ -1,4 +1,8 @@
-           
+$(document).ready(function() {	
+ 
+    setInterval(recargarLlamada, 10000);
+});
+
 
 
  function cargaBarraEstabelcimientos(){

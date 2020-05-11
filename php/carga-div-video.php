@@ -39,8 +39,9 @@ else{
                             <img src="assets/images/img-2.jpg" alt="">
                         </div>
                         <div class="team-content">
-                            <h2 class="title">Llamada aún no disponible,reintenta en un momento</h2>
-                            <span class="title">Presiona para consultar</span>
+                            <h2 class="title">Llamada aún no disponible</h2>
+                            
+                            <span class="title">Espere un momento por favor..</span>
                             <ul class="social">
                                 <li><a onclick="recargarLlamada()"><i class="fa fa-microphone-slash fa-3x" aria-hidden="true" title="camara bloqueada"></i></a></li>
                                 
