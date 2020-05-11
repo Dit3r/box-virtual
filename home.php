@@ -39,6 +39,8 @@ $uname=$_SESSION['username'];
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/custom.css">
+    
+    <link rel="stylesheet" href="assets/css/loaders.css">
 
 </head>
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
@@ -183,7 +185,8 @@ $uname=$_SESSION['username'];
 	<!-- Start div Carga contenido  -->
 	<div id="cargacontenido" class="appointment-main">
         
-       
+  
+        
 	</div>
 	<!-- End div Carga contenido  -->
 	   

@@ -4,7 +4,7 @@
 				<div class="col-lg-12">
 					<div class="title-box">
 						<h2>Box Virtual</h2>
-						<p>Se efectuará una video LLamada. </p>
+						<p>Ubíquese sobre la imagen para efectuar una video LLamada. </p>
 					</div>
 				</div>
 			</div>
@@ -21,8 +21,12 @@
                             <img src="assets/images/img-2.jpg" alt="">
                         </div>
                         <div class="team-content">
+                        
                             <h3 class="title">Llamada no disponible</h3>
-                            <span class="title">Presiona para consultar</span>
+                            <span class="title">Espere un momento por favor...</span>
+                            
+                                 <div class="loader"></div> 
+                            
                         <ul class="social">
                               <li>  <a onclick="recargarLlamada()"><i class="fa fa-microphone-slash fa-3x" aria-hidden="true" title="camara bloqueada"></i></a>   
                                 </li>

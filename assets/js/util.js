@@ -45,6 +45,7 @@ function mostrarEstablecimientos(){
     $("#cargacontenido").html("");
     
     
+    
     location.href="#cargacontenido";
 }
 
@@ -107,6 +108,7 @@ function recargarLlamada(){
        /// Ponemos la respuesta de nuestro script en el DIV recargado
         
         $("#llamada").html(data);
+      
         
     });        
 }

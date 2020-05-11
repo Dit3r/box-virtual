@@ -22,7 +22,7 @@ echo '
                         </div>
                         <div class="team-content">
                             <h3 class="title">Llamada Disponible</h3>
-                            <span class="title">Presiona para ir a la videollamada</span>
+                            <span class="title">Presione para ir a la videollamada</span>
                             <ul class="social">
                                 <li><a href="http://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id='.$id.'&width=700&heigth=500 " title="camara desbloqueada" onclick="recargarLlamada()" target="_blank"><i class="fa fa-video-camera fa-3x" aria-hidden="true"></i></a></li>
                                 
@@ -41,7 +41,10 @@ else{
                         <div class="team-content">
                             <h2 class="title">Llamada aún no disponible</h2>
                             
-                            <span class="title">Espere un momento por favor..</span>
+                            <span class="title">Espere un momento por favor...</span>
+                            
+                             <div class="loader"></div> 
+                            
                             <ul class="social">
                                 <li><a onclick="recargarLlamada()"><i class="fa fa-microphone-slash fa-3x" aria-hidden="true" title="camara bloqueada"></i></a></li>
                                 
