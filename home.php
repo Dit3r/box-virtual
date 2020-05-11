@@ -160,8 +160,14 @@ $uname=$_SESSION['username'];
 							</div>
 				</div>
                 
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                <button onclick="mostrarEstablecimientos()"  type="button" class="btn btn-primary">Comenzar</button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-7 col-sm-6 col-lg-8" >
+                        <button onclick="mostrarEstablecimientos()"  type="button" class="btn btn-primary">Comenzar</button>
+                        </div>
+                    
+                    </div>
+                   
                 </div>
                 
                 

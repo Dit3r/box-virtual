@@ -3,7 +3,7 @@ include '../bd/conexion.php';
 //aca se pondra un estado de base de datos
 $user="admin";
 $pas="123456";
-$query="SELECT * FROM usuario where usuario='$user' and contrasena='$pas'";
+$query="SELECT * FROM paciente.usuario where usuario='$user' and contrasena='$pas'";
 $res=pg_query($con,$query);
 $rows = pg_num_rows($res);
 $data = pg_fetch_array($res);    
