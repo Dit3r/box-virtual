@@ -162,24 +162,23 @@ $uname=$_SESSION['username'];
 							</div>
 				</div>
                 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-7 col-sm-6 col-lg-8" >
-                        <button onclick="mostrarEstablecimientos()"  type="button" class="btn btn-primary">Comenzar</button>
-                        </div>
-                    
-                    </div>
-                   
-                </div>
                 
                 
                 
-			</div>
-            
-        
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                 <div class="btn-group">        
+                     <button onclick="mostrarEstablecimientos()" class="btn btn-primary submit" >Comenzar</button>
+                 </div>
+              </div>
+               
+			</div> 
+ 
 		</div>
+        
 	</div>
 	<!-- End Home -->
+    
+   
             
 	
 	<!-- Start div Carga contenido  -->
@@ -273,6 +272,65 @@ $uname=$_SESSION['username'];
 </div>
         
         <!-- End Modal Libro sugerencia -->
+    
+    
+    <!--modal exito -->
+<div class="modal fade" id="exito" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Éxito</h5>
+      </div>
+      <div class="modal-body">
+        Datos válidos.
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-success" data-dismiss="modal"> Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+     <!--modal fracaso -->
+<div class="modal fade" id="fracaso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+      </div>
+      <div class="modal-body">
+        Sus datos no son válidos.
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-warning" data-dismiss="modal"> Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--modal error -->
+<div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+      </div>
+      <div class="modal-body">
+        Error al procesar los datos.
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-danger" data-dismiss="modal"> Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    
         
         
 	<!-- Start Footer -->

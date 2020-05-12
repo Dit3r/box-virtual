@@ -3,7 +3,7 @@ $(document).ready(function() {
     setInterval(recargarLlamada, 10000);
 });
 
-
+///cargan las barras de navegacion
 
  function cargaBarraEstabelcimientos(){
       $.post("php/barra_establecimientos.php",function(data){
@@ -29,8 +29,9 @@ function cargaBarraBoxVirtual(){
      
  }
 
+///fin carga barras navegacion /////////////
 
-
+////funcion muestra establecimientos///////////
 function mostrarEstablecimientos(){  
     $("#navbar-wd").html("");
     cargaBarraEstabelcimientos();  
@@ -44,14 +45,12 @@ function mostrarEstablecimientos(){
     
     $("#cargacontenido").html("");
     
-    
-    
     location.href="#cargacontenido";
 }
+////fin funcion muestra establecimientos ///////////
 
 
-
-
+////// inicio funcion muestra sala de espera //////
 function mostrarSalaEspera(){  
     
      $("#navbar-wd").html("");
@@ -66,15 +65,13 @@ function mostrarSalaEspera(){
     }); 
     
      
-        
        location.href="#cargacontenido";
  
-    
 }
 
+//////fin funcion muestra sala de espera/////////
 
-
-
+////////////inicio funcion muestra box//////////////
 function mostrarBox(){
     
     
@@ -100,7 +97,10 @@ function mostrarBox(){
         }
     }
 
+/////// fin funcion muestra box//////////
 
+
+////funcion que recarga el div de la llamada ///////
 function recargarLlamada(){   
    
        /// Invocamos a nuestro script PHP
@@ -112,11 +112,11 @@ function recargarLlamada(){
         
     });        
 }
+///////////fin funcion que recarga div llamada//////////
 
 
 
-
-//select establecimientos
+///////inicio select cambia region 
 
 function cargaRegion () {
 
@@ -126,7 +126,7 @@ function cargaRegion () {
         $.each(data, function(key, value) {
 
             var option =
-                "<option value="+value.region+">"+value.region+"</option>";
+                "<option value='"+value.region+"'>"+value.region+"</option>";
                  
             $("#region").append(option);
 
@@ -139,6 +139,7 @@ function cargaRegion () {
     
 };
 
+/////////
 
 //inico cambia comuna
 function cambiaComuna(){
@@ -154,7 +155,7 @@ function cambiaComuna(){
             if(valorInputReg == value.region) {
             
                  var option =
-                "<option value="+value.comuna+">"+value.comuna+"</option>";
+                "<option value='"+value.comuna+"'>"+value.comuna+"</option>";
                 
             $("#comuna").append(option);
                 
@@ -165,8 +166,9 @@ function cambiaComuna(){
         cambiaEstablecimiento();
     }); // close getJSON()
 }
+////
 
-//inicio cambia estavblecimiento
+/////inicio cambia estavblecimiento
 
 function cambiaEstablecimiento(){
 
@@ -180,7 +182,7 @@ function cambiaEstablecimiento(){
             if(valorInputCom == value.comuna) {
             
                  var option =
-            "<option value="+value.establecimiento+">"+value.establecimiento+" ,"+value.direccion+"</option>";
+            "<option value='"+value.establecimiento+"'>"+value.establecimiento+" ,"+value.direccion+"</option>";
                 
             $("#establecimiento").append(option);
                 
@@ -191,14 +193,10 @@ function cambiaEstablecimiento(){
     }); // close getJSON()
 }
 
+//fin select establecimientos////
 
 
-
-
-//fin select establecimientos
-
-
-//select sectores
+//////select sectores///7
 
 function cargaSome () {
 
@@ -219,3 +217,42 @@ function cargaSome () {
 
 
 //fin select sectores
+
+
+
+////inicio funcion ajax que confirma y valida establecimiento ////
+
+function confirma_establecimiento(){
+        var parametros = {
+                "region" : $('#region').val(),
+               "comuna" : $('#comuna').val(),
+               "establecimiento" : $('#establecimiento').val(),
+                "sector" : $('#sector').val()
+        };
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'controller/enviar_establecimiento.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#div_boton_est").html("<div class='loaderboton'></div> ");
+                },
+                dataType: "json",
+                success:  function (response) {
+                    //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
+                    if(response.resp){
+                       // alert(response.nombre);
+                        $("#exito").modal('show');
+                        mostrarSalaEspera();
+                    } else{
+                        $("#fracaso").modal('show');
+                    }
+                        
+                },
+              error:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                    
+                        $("#error").modal('show');
+               
+                }
+               
+        });
+}

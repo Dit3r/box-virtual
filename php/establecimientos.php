@@ -15,7 +15,7 @@
                             <h2>Seleccionar datos</h2>
                             
                         </div>
-                        <form id="form_establecimientos" method="post">
+                        <form method="post" id="form_establecimientos">
                             <!-- Form start -->
                             <div class="row">
                              
@@ -86,9 +86,11 @@
                                 </div>
                                 <!-- Button -->
                                 <div class="col-md-12">
-                                    <div class="form-group">
+                                    <div id="div_boton_est" class="form-group">
                                   
-                                          <input id="confirmar_establecimiento" onclick="mostrarSalaEspera()" class="btn btn-primary submit"  value="Confirmar" />
+                                          <input id="confirmar_establecimiento" onclick="confirma_establecimiento()" class="btn btn-primary submit"  value="Confirmar" type="button" />
+                                          
+                
                                     </div>
                                 </div>
                             </div>
