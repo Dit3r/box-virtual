@@ -24,7 +24,7 @@ echo '
                             <h3 class="title">Llamada Disponible</h3>
                             <span class="title">Presione para ir a la videollamada</span>
                             <ul class="social">
-                                <li><a href="http://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id='.$id.'&width=700&heigth=500 " title="camara desbloqueada" onclick="recargarLlamada()" target="_blank"><i class="fa fa-video-camera fa-3x" aria-hidden="true"></i></a></li>
+                                <li><a href="https://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id='.$id.'&width=700&heigth=500 " title="camara desbloqueada" onclick="recargarLlamada()" target="_blank"><i class="fa fa-video-camera fa-3x" aria-hidden="true"></i></a></li>
                                 
                             </ul>
                         </div>
