@@ -3,39 +3,22 @@ $(document).ready(function() {
     setInterval(recargarLlamada, 10000);
 });
 
-///cargan las barras de navegacion
+///cargan las barra de navegacion
 
- function cargaBarraEstabelcimientos(){
-      $.post("php/barra_establecimientos.php",function(data){
+ function cargaBarraNavegacion(){
+      $.post("php/barra_navegacion.php",function(data){
         $("#navbar-wd").html(data);
        
     });
      
  }
 
-function cargaBarraSalaEspera(){
-      $.post("php/barra_sala_espera.php",function(data){
-         $("#navbar-wd").html(data);
-       
-    });
-     
- }
 
-function cargaBarraBoxVirtual(){
-      $.post("php/barra_box_virtual.php",function(data){
-         $("#navbar-wd").html(data);
-   
-    });
-     
- }
-
-///fin carga barras navegacion /////////////
+///fin carga barra navegacion /////////////
 
 ////funcion muestra establecimientos///////////
-function mostrarEstablecimientos(){  
-    $("#navbar-wd").html("");
-    cargaBarraEstabelcimientos(); 
-    $("#cargacontenido").html("");
+function mostrarEstablecimientos(){   
+    cargaBarraNavegacion();
        /// Invocamos a nuestro script PHP
     $.post("php/establecimientos.php",function(data){
        /// Ponemos la respuesta de nuestro script en el DIV recargado
@@ -51,13 +34,9 @@ function mostrarEstablecimientos(){
 
 ////// inicio funcion muestra sala de espera //////
 function mostrarSalaEspera(){  
-    
-     $("#navbar-wd").html("");
-      cargaBarraSalaEspera();
-    $("#cargacontenido").html("");
+    $("#cambiar").html("Sala de espera");
     $.post("php/sala_de_espera.php",function(data){
     $("#cargacontenido").html(data);
-
         location.href="#cargacontenido";
     }); 
     
@@ -66,19 +45,13 @@ function mostrarSalaEspera(){
 
 
 ////////////inicio funcion muestra box//////////////
-function mostrarBox(){
-    
-    $("#navbar-wd").html("");
-    cargaBarraBoxVirtual();  
-    $("#cargacontenido").html("");
-        
+function mostrarBox(){ 
+     $("#cambiar").html("Box Virtual");
     $.post("php/box_virtual.php",function(data){
     $("#cargacontenido").html(data);
-        
         location.href="#cargacontenido";
     });  
-                 
-        
+                   
     }
 
 /////// fin funcion muestra box//////////
