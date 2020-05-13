@@ -300,7 +300,7 @@ $uname=$_SESSION['username'];
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Error</h5>
       </div>
-      <div class="modal-body">
+      <div id="datovacio" class="modal-body">
         Sus datos no son válidos.
       </div>
       <div class="modal-footer">

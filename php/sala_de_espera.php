@@ -63,11 +63,9 @@
                                 </div>
                                 <!-- Button -->
                                 <div class="col-md-12">
-                                    <div class="form-group">
-                                    <!--    <button id="enviar-motivo" onclick="mostrarBox()" name="enviar-motivo"class="new-btn-d br-2">Enviar</button> 
-                                      -->
-                                        
-                                        <input id="enviar_motivo" onclick="mostrarBox()" class="btn btn-primary submit"  value="Enviar" />
+                                    <div class="form-group" id="div_boton_sala">
+                                  
+                                        <input id="enviar_motivo" onclick="confirma_datos_medicos()" class="btn btn-primary submit"  value="Enviar" />
                                     </div>
                                 </div>
                             </div>

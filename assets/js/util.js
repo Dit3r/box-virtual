@@ -7,7 +7,7 @@ $(document).ready(function() {
 
  function cargaBarraEstabelcimientos(){
       $.post("php/barra_establecimientos.php",function(data){
-    $("#navbar-wd").html(data);
+        $("#navbar-wd").html(data);
        
     });
      
@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 function cargaBarraSalaEspera(){
       $.post("php/barra_sala_espera.php",function(data){
-    $("#navbar-wd").html(data);
+         $("#navbar-wd").html(data);
        
     });
      
@@ -23,8 +23,8 @@ function cargaBarraSalaEspera(){
 
 function cargaBarraBoxVirtual(){
       $.post("php/barra_box_virtual.php",function(data){
-    $("#navbar-wd").html(data);
-       
+         $("#navbar-wd").html(data);
+   
     });
      
  }
@@ -34,18 +34,17 @@ function cargaBarraBoxVirtual(){
 ////funcion muestra establecimientos///////////
 function mostrarEstablecimientos(){  
     $("#navbar-wd").html("");
-    cargaBarraEstabelcimientos();  
+    cargaBarraEstabelcimientos(); 
+    $("#cargacontenido").html("");
        /// Invocamos a nuestro script PHP
     $.post("php/establecimientos.php",function(data){
        /// Ponemos la respuesta de nuestro script en el DIV recargado
     $("#cargacontenido").html(data);
         cargaRegion();
         cargaSome();
+        location.href="#cargacontenido";
     });
     
-    $("#cargacontenido").html("");
-    
-    location.href="#cargacontenido";
 }
 ////fin funcion muestra establecimientos ///////////
 
@@ -56,45 +55,30 @@ function mostrarSalaEspera(){
      $("#navbar-wd").html("");
       cargaBarraSalaEspera();
     $("#cargacontenido").html("");
-    
-       /// Invocamos a nuestro script PHP
     $.post("php/sala_de_espera.php",function(data){
-       /// Ponemos la respuesta de nuestro script en el DIV recargado
     $("#cargacontenido").html(data);
-        
+
+        location.href="#cargacontenido";
     }); 
     
-     
-       location.href="#cargacontenido";
- 
 }
 
-//////fin funcion muestra sala de espera/////////
+
 
 ////////////inicio funcion muestra box//////////////
 function mostrarBox(){
     
-    
-  if ($('#motivo').val().trim() === '') {
-      
-     alert('Debe indicar el motivo');
-     location.href="#cargacontenido";
-      
-     $("#motivo").val('').focus();
-
-    } else {
-             $("#navbar-wd").html("");
-             cargaBarraBoxVirtual();  
-        $("#cargacontenido").html("");
+    $("#navbar-wd").html("");
+    cargaBarraBoxVirtual();  
+    $("#cargacontenido").html("");
         
-       /// Invocamos a nuestro script PHP
     $.post("php/box_virtual.php",function(data){
-       /// Ponemos la respuesta de nuestro script en el DIV recargado
     $("#cargacontenido").html(data);
+        
+        location.href="#cargacontenido";
     });  
                  
-          location.href="#cargacontenido";
-        }
+        
     }
 
 /////// fin funcion muestra box//////////
@@ -245,6 +229,61 @@ function confirma_establecimiento(){
                         mostrarSalaEspera();
                     } else{
                         $("#fracaso").modal('show');
+                    }
+                        
+                },
+              error:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                    
+                        $("#error").modal('show');
+               
+                }
+               
+        });
+}
+
+
+
+
+//////fin que valida motivo/////////
+
+function validaDatosMedicos(){
+    
+    $("#datovacio").html("Complete todos los datos.");
+    $("#div_boton_sala").html("<input id='enviar_motivo' onclick='confirma_datos_medicos()' class='btn btn-primary submit' value='Enviar' />");
+    $("#motivo").val('').focus();
+}
+
+
+////inicio funcion ajax que envia form datos medicos ////
+
+function confirma_datos_medicos(){
+        var parametros = {
+               "enfermedad" : $('#enfermedad').val(),
+               "alergico" : $('#alergico').val(),
+               "medicamento" : $('#medicamento').val(),
+               "motivo" : $('#motivo').val()
+        };
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'controller/enviar_datos_medicos.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#div_boton_sala").html("<div class='loaderboton'></div> ");
+                },
+                dataType: "json",
+                success:  function (response) {
+                    //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
+                    if(response.resp){
+                       // alert(response.nombre);
+                         mostrarBox();
+                        $("#exito").modal('show');
+                       
+                    } else{ 
+                          
+                        $("#fracaso").modal('show');
+                       
+                        validaDatosMedicos();
+                        
                     }
                         
                 },
