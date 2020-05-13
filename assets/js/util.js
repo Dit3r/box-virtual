@@ -202,13 +202,14 @@ function confirma_establecimiento(){
                         mostrarSalaEspera();
                     } else{
                         $("#fracaso").modal('show');
+                        $("#div_boton_est").html("<input id='confirmar_establecimiento' onclick='confirma_establecimiento()' class='btn btn-primary submit'  value='Confirmar' type='button' />");
                     }
                         
                 },
               error:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
                     
                         $("#error").modal('show');
-               
+                       $("#div_boton_est").html("<input id='confirmar_establecimiento' onclick='confirma_establecimiento()' class='btn btn-primary submit'  value='Confirmar' type='button' />");
                 }
                
         });
