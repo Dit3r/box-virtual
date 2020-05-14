@@ -29,19 +29,6 @@ $("#cambiar").html("Sala de Espera");
 ////fin funcion muestra establecimientos ///////////
 
 
-////funcion muestra box///////////
-function mostarModalBox(){
-$("#cambiar").html("Box Virtual");   
-$('#label_sala_espera').html("<p class='bg-info text-white' >Sala de espera Revisada</p> </br>"); 
-$('#paso3').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");
-$('#label_box').html("<p class='bg-success text-white' >En llamada</p> </br>");     
-$('#paso4').html("<button onclick='mostarModalBox()' class='btn btn-primary submit' >Box Virtual</button>");
-var url = $('#url').val() ;
-
-     $('#cargacontenido').html('<center><iframe width="700" height="500" src="'+url+'" frameborder="0" allowfullscreen ></iframe> </center>');
-    
-        
-}
 
 
 
@@ -168,7 +155,8 @@ function confirma_establecimiento(){
                     //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
                     if(response.resp){
                     $("#modal_establecimientos").modal('hide');     
-                    $('#paso1').html("<button disabled class='btn btn-success'  >Hecho ✓</button>"); 
+                    $('#paso1').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");    
+                    $("#div_icono_establecimiento").toggleClass('service-icon2');
                     $('#label_establecimiento').html("<p class='bg-info text-white' >"+response.establecimiento+"</p>"); 
                     $('#paso2').html("<button onclick='mostrarModalSome()' class='btn btn-primary submit' >Sector some ⮕</button>");
                     $('#label_some').html("<p class='text-primary'>Paso 2. Seleccione su sector SOME.</p>");
@@ -208,6 +196,7 @@ function confirma_some(){
                     if(response.resp){
                     $("#modal_some").modal('hide');     
                     $('#paso2').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");
+                    $("#div_icono_some").toggleClass('service-icon2');      
                     switch (response.sector) {
                      case 'rojo':
                      $('#label_some').html("<p class='bg-danger text-white'>Sector Rojo</p> </br>"); 
@@ -223,11 +212,12 @@ function confirma_some(){
                      break;
                      default:
                       $('#label_some').html("<p class='bg-secondary text-white'>Sin Sector</p> </br>"); 
-                      }
+                      }  
                     $('#paso3').html("<button onclick='mostrarModalSalaespera()' class='btn btn-primary submit' >Sala de espera ⮕</button>");
                     $('#label_sala_espera').html("<p class='text-primary'>Paso 3 . Sala de espera de Atención Medica.</p>");
                           mostrarModalSalaespera();
-                    } else{
+                    } 
+                    else{
                         $("#fracaso").modal('show');
                         $('#paso2').html("<button onclick='mostrarModalSome()' class='btn btn-primary submit' >Sector some ⮕</button>"); 
                     }
@@ -250,8 +240,7 @@ function confirma_some(){
 function validaDatosMedicos(){
     
     $("#datovacio").html("Complete todos los datos.");
-    $("#div_boton_sala").html("<button id='enviar_motivo' type='button' class='btn btn-primary' onclick='confirma_datos_medicos()' >Enviar </button>"+
-                                   "<button class='btn btn-secondary' type='button' data-toggle='collapse' data-target='#datosmedicos' aria-expanded='false' aria-controls='collapseExample' >Cancelar ▲</button> ");
+    $("#div_boton_sala").html("<button id='enviar_motivo' type='button' class='btn btn-primary' onclick='confirma_datos_medicos()' >Enviar</button><button class='btn btn-secondary' type='button' data-toggle='collapse' data-target='#datosmedicos' aria-expanded='false' aria-controls='collapseExample' >Cancelar ▲</button>  ");
     $("#motivo").val('').focus();
 }
 
@@ -277,17 +266,61 @@ function confirma_datos_medicos(){
                     //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
                     if(response.resp){
                         $("#exito").modal('show');
+                         $("#datosmedicos").slideUp();
                     } else{ 
                         $("#fracaso").modal('show');
                         validaDatosMedicos();
                     }
                         
                 },
-              error:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                    
+              error:  function (response) { 
                         $("#error").modal('show');
                
                 }
                
         });
 }
+
+
+/////mandar url//////
+////inicio funcion ajax que confirma y valida establecimiento ////
+
+function mostarModalBox(){
+        var parametros = {
+                "url" : "https://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id="+$('#url').val()+"$id&width=700&heigth=500",
+        };
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'controller/enviar_url_llamada.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#llamada").html("<div class='loaderboton'></div> ");
+                },
+                dataType: "json",
+                success:  function (response) {
+                    //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
+                    if(response.resp){
+                    $("#cambiar").html("Box Virtual");
+                    $("#div_icono_sala_espera").toggleClass('service-icon2');
+                    $('#label_sala_espera').html("<p class='bg-info text-white' >Sala de espera Revisada</p> </br>");     
+                    $('#paso3').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");
+                    $('#label_box').html("<p class='bg-success text-white' >En llamada</p> </br>");
+                    $("#div_icono_box").toggleClass('service-icon2');    
+                    $('#paso4').html("<button onclick='mostrarModalSalaespera()' class='btn btn-primary submit' >Box Virtual</button>");    
+                    $('#cargacontenido').html('<center><iframe width="700" height="500" src="'+response.url+'" frameborder="0" allowfullscreen ></iframe> </center>');
+                    } else{
+                        $("#fracaso").modal('show');
+                   
+                    }
+                        
+                },
+              error:  function (response) { 
+                    
+                        $("#error").modal('show');
+                }
+               
+        });
+}
+
+
+

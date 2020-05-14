@@ -14,11 +14,11 @@ $resv=pg_query($con,$queryv);
 $rowsv = pg_num_rows($resv);
 $datav = pg_fetch_array($resv);   
 
-$url= "https://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id=$id&width=700&heigth=500";
+
 
  if($datav['estado'] == 1){
-echo '                      <input id="url" type="hidden" value="'.$url.'">
-                              <ul class="colores">
+echo '                     
+                             <ul class="colores">
                               <li>  
                                   <a onclick="mostarModalBox()" type="button" class="btn btn-success"  >
                                   
@@ -34,7 +34,7 @@ echo '                      <input id="url" type="hidden" value="'.$url.'">
  }
 else{
     
-    echo '<ul class="colores">
+    echo '               <ul class="colores">
                               <li>  
                                   <a onclick="recargarLlamada()" type="button" class="btn btn-danger" >
                                   <i class="fa fa-microphone-slash fa-2x" aria-hidden="true" title="camara bloqueada">

@@ -104,9 +104,9 @@ $uname=$_SESSION['username'];
             
           
 			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="col-lg-3 col-md-6 col-sm-12" >
 					       <div class="serviceBox">
-								<div class="service-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></div>
+								<div class="service-icon" id="div_icono_establecimiento" ><i id="icono_establecimiento" class="fa fa-hospital-o" aria-hidden="true"></i></div>
 								<h2 class="title">Establecimiento</h2> 
                                 <div id="label_establecimiento">
                                 <p class="text-info" >
@@ -123,7 +123,7 @@ $uname=$_SESSION['username'];
                 
                 	<div class="col-lg-3 col-md-6 col-sm-12">
 					       <div class="serviceBox">
-								<div class="service-icon"><i class="fa fa-hospital-o" aria-hidden="true"></i></div>
+								<div class="service-icon" id="div_icono_some" ><i class="fa fa-address-card-o" aria-hidden="true"></i></div>
 								<h2 class="title">Sector Some</h2>
                                <div id="label_some">
                                 <p class="text-info" >
@@ -137,9 +137,9 @@ $uname=$_SESSION['username'];
 							</div>
 				</div>
                 
-				<div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="col-lg-3 col-md-6 col-sm-12">   
                     	  <div class="serviceBox">
-								<div class="service-icon"><i class="fa fa-plus-square" aria-hidden="true"></i></div>
+								<div class="service-icon"id="div_icono_sala_espera"  ><i class="fa fa-clock-o" aria-hidden="true"></i></div>
 								<h2 class="title">Sala de Espera</h2>
                               <div id="label_sala_espera">
                                 <p class="text-info" >
@@ -156,7 +156,7 @@ $uname=$_SESSION['username'];
                 
 				<div class="col-lg-3 col-md-6 col-sm-12">
                          <div class="serviceBox">
-								<div class="service-icon"><i class="fa fa-stethoscope" aria-hidden="true"></i></div>
+								<div class="service-icon" id="div_icono_box" ><i class="fa fa-user-md" aria-hidden="true"></i></div>
 								<h2 class="title">Acceso Box Virtual</h2>
                              <div id="label_box">
                                  <p class="text-info" >
@@ -408,7 +408,7 @@ $uname=$_SESSION['username'];
     <div class="modal-content">
      
     <!-- empieza contenido-->
-        <div id="cargacontenido" class="appointment-main">
+        <div id="cargacontenido" class="main-content">
         <div class="container">
 			<div class="row">
 				<div class="col-lg-12">
