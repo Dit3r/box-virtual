@@ -12,48 +12,39 @@ $id=$dataid['id'];
 $queryv="SELECT * FROM paciente.videousuario where id_usuario='$id'";
 $resv=pg_query($con,$queryv);
 $rowsv = pg_num_rows($resv);
-$datav = pg_fetch_array($resv);    
+$datav = pg_fetch_array($resv);   
+
+$url= "https://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id=$id&width=700&heigth=500";
 
  if($datav['estado'] == 1){
-echo ' 
-                    <div class="our-team">
-                        <div class="pic">
-                            <img src="assets/images/img-2.jpg" alt="">
-                        </div>
-                        <div class="team-content">
-                            <h3 class="title">Llamada Disponible</h3>
-                            <span class="title">Presione para ir a la videollamada</span>
-                            <ul class="social">
-                                <li><a href="https://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id='.$id.'&width=700&heigth=500 " title="camara desbloqueada" onclick="recargarLlamada()" target="_blank"><i class="fa fa-video-camera fa-3x" aria-hidden="true"></i></a></li>
+echo '                      <input id="url" type="hidden" value="'.$url.'">
+                              <ul class="colores">
+                              <li>  
+                                  <a onclick="mostarModalBox()" type="button" class="btn btn-success"  >
+                                  
+                                 <i class="fa fa-video-camera fa-2x" aria-hidden="true" title="camara desbloqueada"  >
+                                </i>
                                 
-                            </ul>
-                        </div>
-                    </div>';
+                                    <p class="bg-success text-white" > 
+                                       Lamada Disponible...
+                                    </p>  
+                                  </a>   
+                                </li>
+                            </ul>   ';
  }
 else{
     
-    echo '
-    
-              <div class="our-team">
-                        <div class="pic">
-                            <img src="assets/images/img-2.jpg" alt="">
-                        </div>
-                        <div class="team-content">
-                            <h2 class="title">Llamada aún no disponible</h2>
-                            
-                            <span class="title">Espere un momento por favor...</span>
-                            
-                             <div class="loader"></div> 
-                            
-                            <ul class="social">
-                                <li><a onclick="recargarLlamada()"><i class="fa fa-microphone-slash fa-3x" aria-hidden="true" title="camara bloqueada"></i></a></li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-
-    
-    ';
+    echo '<ul class="colores">
+                              <li>  
+                                  <a onclick="recargarLlamada()" type="button" class="btn btn-danger" >
+                                  <i class="fa fa-microphone-slash fa-2x" aria-hidden="true" title="camara bloqueada">
+                                  </i>
+                                    <p class="bg-danger text-white"> 
+                                        Lamada no disponible...
+                                    </p>  
+                                  </a>   
+                                </li>
+                            </ul> ';
 }
 
 

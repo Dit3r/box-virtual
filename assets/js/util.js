@@ -3,58 +3,47 @@ $(document).ready(function() {
     setInterval(recargarLlamada, 10000);
 });
 
-///cargan las barra de navegacion
-
- function cargaBarraNavegacion(){
-      $.post("php/barra_navegacion.php",function(data){
-        $("#navbar-wd").html(data);
-       
-    });
-     
- }
-
-
-///fin carga barra navegacion /////////////
 
 ////funcion muestra establecimientos///////////
-function mostrarEstablecimientos(){   
-    cargaBarraNavegacion();
-       /// Invocamos a nuestro script PHP
-    $.post("php/establecimientos.php",function(data){
-       /// Ponemos la respuesta de nuestro script en el DIV recargado
-    $("#cargacontenido").html(data);
-        cargaRegion();
-        cargaSome();
-        location.href="#cargacontenido";
-    });
-    
+function mostrarModalEstablecimiento(){
+$("#cambiar").html("Establecimiento");    
+ $("#modal_establecimientos").modal('show');
+     cargaRegion();
+}
+
+////fin funcion muestra establecimientos ///////////
+
+////funcion muestra establecimientos///////////
+function mostrarModalSome(){
+$("#cambiar").html("SOME");      
+ $("#modal_some").modal('show');
 }
 ////fin funcion muestra establecimientos ///////////
 
 
-////// inicio funcion muestra sala de espera //////
-function mostrarSalaEspera(){  
-    $("#cambiar").html("Sala de espera");
-    $.post("php/sala_de_espera.php",function(data){
-    $("#cargacontenido").html(data);
-        location.href="#cargacontenido";
-    }); 
+////funcion muestra establecimientos///////////
+function mostrarModalSalaespera(){
+$("#cambiar").html("Sala de Espera");      
+ $("#modal_sala_espera").modal('show');
+}
+////fin funcion muestra establecimientos ///////////
+
+
+////funcion muestra box///////////
+function mostarModalBox(){
+$("#cambiar").html("Box Virtual");   
+$('#label_sala_espera').html("<p class='bg-info text-white' >Sala de espera Revisada</p> </br>"); 
+$('#paso3').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");
+$('#label_box').html("<p class='bg-success text-white' >En llamada</p> </br>");     
+$('#paso4').html("<button onclick='mostarModalBox()' class='btn btn-primary submit' >Box Virtual</button>");
+var url = $('#url').val() ;
+
+     $('#cargacontenido').html('<center><iframe width="700" height="500" src="'+url+'" frameborder="0" allowfullscreen ></iframe> </center>');
     
+        
 }
 
 
-
-////////////inicio funcion muestra box//////////////
-function mostrarBox(){ 
-     $("#cambiar").html("Box Virtual");
-    $.post("php/box_virtual.php",function(data){
-    $("#cargacontenido").html(data);
-        location.href="#cargacontenido";
-    });  
-                   
-    }
-
-/////// fin funcion muestra box//////////
 
 
 ////funcion que recarga el div de la llamada ///////
@@ -153,24 +142,6 @@ function cambiaEstablecimiento(){
 //fin select establecimientos////
 
 
-//////select sectores///7
-
-function cargaSome () {
-
-    $.getJSON("json/sectores.json", function(data) {
-        //relleno la variable global con el json
-        $.each(data, function(key, value) {
-
-            var option =
-                "<option value="+value.sector+">"+value.sector+"</option>";
-                 
-            $("#sector").append(option);
-
-        }); // close each()
-   
-    }); // close getJSON()
-
-};
 
 
 //fin select sectores
@@ -184,7 +155,6 @@ function confirma_establecimiento(){
                 "region" : $('#region').val(),
                "comuna" : $('#comuna').val(),
                "establecimiento" : $('#establecimiento').val(),
-                "sector" : $('#sector').val()
         };
         $.ajax({
                 data:  parametros, //datos que se envian a traves de ajax
@@ -197,23 +167,80 @@ function confirma_establecimiento(){
                 success:  function (response) {
                     //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
                     if(response.resp){
-                       // alert(response.nombre);
-                        $("#exito").modal('show');
-                        mostrarSalaEspera();
+                    $("#modal_establecimientos").modal('hide');     
+                    $('#paso1').html("<button disabled class='btn btn-success'  >Hecho ✓</button>"); 
+                    $('#label_establecimiento').html("<p class='bg-info text-white' >"+response.establecimiento+"</p>"); 
+                    $('#paso2').html("<button onclick='mostrarModalSome()' class='btn btn-primary submit' >Sector some ⮕</button>");
+                    $('#label_some').html("<p class='text-primary'>Paso 2. Seleccione su sector SOME.</p>");
+                          mostrarModalSome();
                     } else{
                         $("#fracaso").modal('show');
-                        $("#div_boton_est").html("<input id='confirmar_establecimiento' onclick='confirma_establecimiento()' class='btn btn-primary submit'  value='Confirmar' type='button' />");
+                         $('#paso1').html("<button onclick='mostrarModalEstablecimiento()' class='btn btn-primary submit'  >Comenzar ⮕</button>"); 
                     }
                         
                 },
               error:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
                     
                         $("#error").modal('show');
-                       $("#div_boton_est").html("<input id='confirmar_establecimiento' onclick='confirma_establecimiento()' class='btn btn-primary submit'  value='Confirmar' type='button' />");
                 }
                
         });
 }
+
+
+
+////inicio funcion ajax que confirma y valida SOME ////
+
+function confirma_some(){
+        var parametros = {
+                "sector" : $('input:radio[name=sector]:checked').val(),
+        };
+        $.ajax({
+                data:  parametros, //datos que se envian a traves de ajax
+                url:   'controller/enviar_sector.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                        $("#div_boton_some").html("<div class='loaderboton'></div> ");
+                },
+                dataType: "json",
+                success:  function (response) {
+                    //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
+                    if(response.resp){
+                    $("#modal_some").modal('hide');     
+                    $('#paso2').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");
+                    switch (response.sector) {
+                     case 'rojo':
+                     $('#label_some').html("<p class='bg-danger text-white'>Sector Rojo</p> </br>"); 
+                     break;
+                     case 'verde':
+                     $('#label_some').html("<p class='bg-success text-white'>Sector Verde</p> </br>"); 
+                     break;
+                     case 'amarillo':
+                     $('#label_some').html("<p class='bg-warning text-white'>Sector Amarillo</p> </br>"); 
+                     break;
+                     case 'azul':
+                     $('#label_some').html("<p class='bg-primary text-white'>Sector Azul</p> </br>"); 
+                     break;
+                     default:
+                      $('#label_some').html("<p class='bg-secondary text-white'>Sin Sector</p> </br>"); 
+                      }
+                    $('#paso3').html("<button onclick='mostrarModalSalaespera()' class='btn btn-primary submit' >Sala de espera ⮕</button>");
+                    $('#label_sala_espera').html("<p class='text-primary'>Paso 3 . Sala de espera de Atención Medica.</p>");
+                          mostrarModalSalaespera();
+                    } else{
+                        $("#fracaso").modal('show');
+                        $('#paso2').html("<button onclick='mostrarModalSome()' class='btn btn-primary submit' >Sector some ⮕</button>"); 
+                    }
+                        
+                },
+              error:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                    
+                        $("#error").modal('show');
+                }
+               
+        });
+}
+
 
 
 
@@ -223,7 +250,8 @@ function confirma_establecimiento(){
 function validaDatosMedicos(){
     
     $("#datovacio").html("Complete todos los datos.");
-    $("#div_boton_sala").html("<input id='enviar_motivo' onclick='confirma_datos_medicos()' class='btn btn-primary submit' value='Enviar' />");
+    $("#div_boton_sala").html("<button id='enviar_motivo' type='button' class='btn btn-primary' onclick='confirma_datos_medicos()' >Enviar </button>"+
+                                   "<button class='btn btn-secondary' type='button' data-toggle='collapse' data-target='#datosmedicos' aria-expanded='false' aria-controls='collapseExample' >Cancelar ▲</button> ");
     $("#motivo").val('').focus();
 }
 
@@ -248,16 +276,10 @@ function confirma_datos_medicos(){
                 success:  function (response) {
                     //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
                     if(response.resp){
-                       // alert(response.nombre);
-                         mostrarBox();
                         $("#exito").modal('show');
-                       
                     } else{ 
-                          
                         $("#fracaso").modal('show');
-                       
                         validaDatosMedicos();
-                        
                     }
                         
                 },
