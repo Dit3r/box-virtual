@@ -476,10 +476,11 @@ $uname=$_SESSION['username'];
                                 
                                     
                                      <div id="div_boton_sala" class="form-group">
+                                         
+                                <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#datosmedicos" aria-expanded="false" aria-controls="collapseExample" >Ocultar ▲</button> 
+                                                  
                                   
                                     <button id="enviar_motivo" type="button" class="btn btn-primary"onclick="confirma_datos_medicos()" >Enviar </button>
-                                         
-                                    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#datosmedicos" aria-expanded="false" aria-controls="collapseExample" >Cancelar ▲</button> 
                                          
                                     </div>
                                     
@@ -557,7 +558,7 @@ $uname=$_SESSION['username'];
                            <div class="form-group">
                                   
                                          
-                                    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#recordatorios" aria-expanded="false" aria-controls="collapseExample" >Cancelar ▲</button> 
+                                    <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#recordatorios" aria-expanded="false" aria-controls="collapseExample" >Ocultar ▲</button> 
                                          
                              </div>
                            

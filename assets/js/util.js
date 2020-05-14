@@ -234,17 +234,6 @@ function confirma_some(){
 
 
 
-
-//////fin que valida motivo/////////
-
-function validaDatosMedicos(){
-    
-    $("#datovacio").html("Complete todos los datos.");
-    $("#div_boton_sala").html("<button id='enviar_motivo' type='button' class='btn btn-primary' onclick='confirma_datos_medicos()' >Enviar</button><button class='btn btn-secondary' type='button' data-toggle='collapse' data-target='#datosmedicos' aria-expanded='false' aria-controls='collapseExample' >Cancelar ▲</button>  ");
-    $("#motivo").val('').focus();
-}
-
-
 ////inicio funcion ajax que envia form datos medicos ////
 
 function confirma_datos_medicos(){
@@ -269,7 +258,9 @@ function confirma_datos_medicos(){
                          $("#datosmedicos").slideUp();
                     } else{ 
                         $("#fracaso").modal('show');
-                        validaDatosMedicos();
+                        $("#datovacio").html("Complete todos los datos.");
+                        $("#div_boton_sala").html("<button class='btn btn-secondary' type='button' data-toggle='collapse' data-target='#datosmedicos' aria-expanded='false' aria-controls='collapseExample' >Ocultar ▲</button>  <button id='enviar_motivo' type='button' class='btn btn-primary' onclick='confirma_datos_medicos()' >Enviar </button> ");
+                        $("#motivo").val('').focus();
                     }
                         
                 },
