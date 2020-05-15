@@ -3,11 +3,7 @@ include '../bd/conexion.php';
 //aca se pondra un estado de base de datos
 session_start();
 $user=$_SESSION['username'];
-
-$queryid="select id from paciente.usuario where usuario ='$user'";
-$resid=pg_query($con,$queryid);
-$dataid = pg_fetch_array($resid);
-$id=$dataid['id'];
+$id= $_SESSION['id'];
 
 $queryv="SELECT * FROM paciente.videousuario where id_usuario='$id'";
 $resv=pg_query($con,$queryv);

@@ -13,6 +13,7 @@ session_start();
  if($rows==1){
  	header('location:../home.php');
  	$_SESSION['username']= $data['usuario'];
+    $_SESSION['id'] =  $data['id'];
  }
 else{
 	echo "Contraseña incorrecta";

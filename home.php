@@ -344,28 +344,28 @@ $uname=$_SESSION['username'];
                                     <div class="form-group">
                                         <h3>
                                             <i class="fa fa-vcard-o fa-2x" aria-hidden="true">
-                                            </i>Sector(color) SOME 
+                                            </i> Sector(color) SOME 
                                        
                                         </h3> 
                             
                                         <div class="row">
                                             
-                                        <div style="background: red;" class="colores" >
+                                        <div style="background: #dc3545;" class="colores" >
                                         <label class="radio-inline" class="form-control" >Rojo</label>
                                          <input value="rojo" name="sector" type="radio" checked >
                                         </div>
                                          
-                                         <div style="background: blue;" class="colores" >
+                                         <div style="background: #007bff;" class="colores" >
                                         <label class="radio-inline" class="form-control" >Azul</label>
                                          <input value="azul" name="sector" type="radio">
                                         </div>
                                          
-                                        <div style="background: yellow;" class="colores">
+                                        <div style="background: #ffc107;" class="colores">
                                           <label class="radio-inline" class="form-control">Amarillo</label>
                                          <input value="amarillo" name="sector" type="radio"> 
                                         </div>
                                         
-                                         <div style="background: green;" class="colores">
+                                         <div style="background: #28a745;" class="colores">
                                          <label class="radio-inline" class="form-control">Verde</label>
                                          <input value="verde" name="sector" type="radio">
                                         </div>

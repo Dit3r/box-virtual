@@ -259,7 +259,7 @@ function confirma_datos_medicos(){
                     } else{ 
                         $("#fracaso").modal('show');
                         $("#datovacio").html("Complete todos los datos.");
-                        $("#div_boton_sala").html("<button class='btn btn-secondary' type='button' data-toggle='collapse' data-target='#datosmedicos' aria-expanded='false' aria-controls='collapseExample' >Ocultar ▲</button>  <button id='enviar_motivo' type='button' class='btn btn-primary' onclick='confirma_datos_medicos()' >Enviar </button> ");
+                        $("#div_boton_sala").html("<button class='btn btn-secondary' type='button' data-toggle='collapse' data-target='#datosmedicos' aria-expanded='false' aria-controls='collapseExample' >Ocultar ▲</button> <button id='enviar_motivo' type='button' class='btn btn-primary' onclick='confirma_datos_medicos()' >Enviar </button> ");
                         $("#motivo").val('').focus();
                     }
                         
@@ -277,8 +277,10 @@ function confirma_datos_medicos(){
 ////inicio funcion ajax que confirma y valida establecimiento ////
 
 function mostarModalBox(){
+    
         var parametros = {
-                "url" : "https://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id="+$('#url').val()+"$id&width=700&heigth=500",
+                "host" : "https://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id=",
+                "config" : "&width=700&heigth=500"
         };
         $.ajax({
                 data:  parametros, //datos que se envian a traves de ajax
@@ -298,7 +300,9 @@ function mostarModalBox(){
                     $('#label_box').html("<p class='bg-success text-white' >En llamada</p> </br>");
                     $("#div_icono_box").toggleClass('service-icon2');    
                     $('#paso4').html("<button onclick='mostrarModalSalaespera()' class='btn btn-primary submit' >Box Virtual</button>");    
-                    $('#cargacontenido').html('<center><iframe width="700" height="500" src="'+response.url+'" frameborder="0" allowfullscreen ></iframe> </center>');
+                 $('#cargacontenido').html('<center><iframe width="700" height="500"  src="'+response.url+'" allow="camera;microphone" frameborder="0" allowfullscreen ></iframe> </center>');
+                  //window.open(response.url,$('#cargacontenido').target, 'width=700px,height=500px');
+                
                     } else{
                         $("#fracaso").modal('show');
                    
