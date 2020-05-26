@@ -31,8 +31,6 @@ $("#cambiar").html("Sala de Espera");
 
 
 
-
-
 ////funcion que recarga el div de la llamada ///////
 function recargarLlamada(){   
    
@@ -157,6 +155,7 @@ function confirma_establecimiento(){
                     $("#modal_establecimientos").modal('hide');     
                     $('#paso1').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");    
                     $("#div_icono_establecimiento").toggleClass('service-icon2');
+                    $("#div_icono_some").toggleClass('service-icon3');
                     $('#label_establecimiento').html("<p class='bg-info text-white' >"+response.establecimiento+"</p>"); 
                     $('#paso2').html("<button onclick='mostrarModalSome()' class='btn btn-primary submit' >Sector some ⮕</button>");
                     $('#label_some').html("<p class='text-primary'>Paso 2. Seleccione su sector SOME.</p>");
@@ -196,7 +195,8 @@ function confirma_some(){
                     if(response.resp){
                     $("#modal_some").modal('hide');     
                     $('#paso2').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");
-                    $("#div_icono_some").toggleClass('service-icon2');      
+                    $("#div_icono_some").toggleClass('service-icon4');
+                    $("#div_icono_sala_espera").toggleClass('service-icon3');    
                     switch (response.sector) {
                      case 'rojo':
                      $('#label_some').html("<p class='bg-danger text-white'>Sector Rojo</p> </br>"); 
@@ -287,18 +287,18 @@ function mostarModalBox(){
                 url:   'controller/enviar_url_llamada.php', //archivo que recibe la peticion
                 type:  'post', //método de envio
                 beforeSend: function () {
-                        $("#llamada").html("<div class='loaderboton'></div> ");
+                        $("#llamada").html("<div class='spinner1'></div> ");
                 },
                 dataType: "json",
                 success:  function (response) {
                     //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
                     if(response.resp){
                     $("#cambiar").html("Box Virtual");
-                    $("#div_icono_sala_espera").toggleClass('service-icon2');
+                    $("#div_icono_sala_espera").toggleClass('service-icon5');
                     $('#label_sala_espera').html("<p class='bg-info text-white' >Sala de espera Revisada</p> </br>");     
                     $('#paso3').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");
                     $('#label_box').html("<p class='bg-success text-white' >En llamada</p> </br>");
-                    $("#div_icono_box").toggleClass('service-icon2');    
+                    $("#div_icono_box").toggleClass('service-icon5');    
                     $('#paso4').html("<button onclick='mostrarModalSalaespera()' class='btn btn-primary submit' >Box Virtual</button>");    
                  $('#cargacontenido').html('<center><iframe width="700" height="500"  src="'+response.url+'" allow="camera;microphone" frameborder="0" allowfullscreen ></iframe> </center>');
                   //window.open(response.url,$('#cargacontenido').target, 'width=700px,height=500px');
