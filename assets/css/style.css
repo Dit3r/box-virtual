@@ -206,6 +206,7 @@ button:focus{
 
 .main-top{
 	background: #12557f;
+    padding: 1px;
 }
 .left-top a{
 	display: inline-block;
@@ -215,7 +216,7 @@ button:focus{
 }
 
 .new-btn-d{
-	padding: 12px 30px;
+	padding: 3px 10px;
 	font-weight: 400;
 	background: none;
 	color: #ffffff;
@@ -312,7 +313,7 @@ button:focus{
 
 
 .top-header .navbar{
-	padding: 5px 0px;
+	padding: 0px 0px;
 }
 
 .top-header{
@@ -323,12 +324,13 @@ button:focus{
 	width: 100%;
 	margin: 0 auto;
 	z-index: 20;
+    height: 3px
 }
 
 .top-header .navbar .navbar-collapse ul li a{
 	text-transform: uppercase;
 	font-size: 14px;
-	padding: 10px 15px;
+	padding: 6px 10px;
 	position: relative;
 	font-weight: 500;
 }
@@ -1008,7 +1010,7 @@ button:focus{
 -------------------------------------------------------------------*/
 
 .gallery-box{
-	padding: 70px 0px;
+	padding: 10px 0px;
 }
 
 .box-gallery{
@@ -1016,6 +1018,7 @@ button:focus{
     box-shadow: 0 0 5px #7e7d7d;
     position: relative;
 	margin-bottom: 30px;
+    align-content: center;
 }
 .box-gallery img{
     width: 100%;
@@ -1255,8 +1258,8 @@ button:focus{
 .blog-inner{
 	background: #ffffff;
 	text-align: center;
-	margin-bottom: 30px;
-	border: 10px solid #fff;
+	margin-bottom: 5px;
+	border: 3px solid #fff;
 	box-shadow: 0 2px 5px rgba(0,0,0,.1);
 }
 
@@ -1300,18 +1303,20 @@ button:focus{
 
 .blog-inner .item-meta{
 	background: #12557f;
+   
 }
 .blog-inner .item-meta a{
 	background: #12557f;
 	color: #ffffff;
 	display: inline-block;
 	border: none;
+     font-size: 20px;
 }
 .blog-inner .item-meta span{
 	color: #ffffff;
 	background: #00cb86;
 	display: inline-block;
-	padding: 5px;
+	padding: 2px;
 }
 
 .blog-inner h2{

@@ -52,7 +52,9 @@ $uname=$_SESSION['username'];
 	<div class="main-top">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6">
+             
+                      
+				<div class="col-lg-8">
                     
 					   <div class="left-top">
 						<a class="new-btn-d br-2" href="#"><span><i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Bienvenido: <?php echo "$uname"; ?></span></a>
@@ -76,6 +78,7 @@ $uname=$_SESSION['username'];
 	<!-- End top bar -->
 	
 	<!-- Start header -->
+
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
@@ -85,7 +88,7 @@ $uname=$_SESSION['username'];
 					<span></span>
 					<span></span>
 				</button>
-			<!-- inicio barra home -->	
+		
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
                         
@@ -96,36 +99,57 @@ $uname=$_SESSION['username'];
             </div>
         </nav>
 	</header>
+    
 	<!-- End header -->
+    
 	            
-	<!-- Start home -->
-	<div id="home" class="blog-box">
+    <!-- Start Home nuevo -->
+	<div id="home" class="gallery-box">
 		<div class="container">
             
-          
+		
 			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-12" >
-					       <div class="serviceBox">
-								<div class="service-icon" id="div_icono_establecimiento" ><i id="icono_establecimiento" class="fa fa-hospital-o" aria-hidden="true"></i></div>
-								<h2 class="title">Establecimiento</h2> 
+                
+                  <div class="col-lg-2 col-md-6 col-sm-12">
+                </div>
+                
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="blog-inner">
+                        
+                      <div class="item-meta">
+							<a href="#"><i class="fa fa-hospital-o"></i> Establecimiento </a>
+						</div>
+                        
+						<div class="blog-img">
+							<img class="img-fluid" src="assets/images/paso1.jpg" alt="" />
+                            
+						</div>
+                        
+						
                                 <div id="label_establecimiento">
                                 <p class="text-info" >
 								 Paso 1. Seleccione su establecimiento.
 								</p>
                                </div>
-                               <div id="paso1">
+						
+						<div id="paso1">
                                    <button onclick="mostrarModalEstablecimiento()" class="btn btn-primary submit"  >Comenzar ⮕</button>
-                               </div>
-                               
-							</div>
+                        </div>
+					</div>
 				</div>
                 
                 
-                	<div class="col-lg-3 col-md-6 col-sm-12">
-					       <div class="serviceBox">
-								<div class="service-icon" id="div_icono_some" ><i class="fa fa-address-card-o" aria-hidden="true"></i></div>
-								<h2 class="title">Sector Some</h2>
-                               <div id="label_some">
+				<div class="col-lg-4 col-md-6 col-sm-12" id="div_paso2">
+					<div class="blog-inner">
+                         <div class="item-meta">
+							<a href="#"><i class="fa fa-address-card-o"></i> Sector Some </a>
+						</div>
+						<div class="blog-img">
+							<img class="img-fluid" src="assets/images/paso2.jpg" alt="" />
+						</div>
+                        
+                           
+                               <div id="label_some" >
                                 <p class="text-info" >
 								Paso 2. Seleccione su sector SOME.
 								</p>
@@ -133,14 +157,33 @@ $uname=$_SESSION['username'];
                                <div id="paso2">
                                     <button disabled  type="button" class="btn btn-secondary" >Paso 2</button>
                                </div>
-                              
-							</div>
+                        
+					</div>
 				</div>
                 
-				<div class="col-lg-3 col-md-6 col-sm-12">   
-                    	  <div class="serviceBox">
-								<div class="service-icon"id="div_icono_sala_espera"  ><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-								<h2 class="title">Sala de Espera</h2>
+                <div class="col-lg-2 col-md-6 col-sm-12">
+                </div>
+                
+                </div>
+            
+            <!-- mitad del div -->
+            
+            <div class="row">
+                
+                <div class="col-lg-2 col-md-6 col-sm-12" id="div_paso3">
+                </div>
+                
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="blog-inner">
+                        
+                         <div class="item-meta">
+							<a href="#"><i class="fa fa-clock-o"></i> Sala de espera </a>
+						</div>
+                        
+						<div class="blog-img">
+							<img class="img-fluid" src="assets/images/paso3.jpg" alt="" />
+						</div>
+                       
                               <div id="label_sala_espera">
                                 <p class="text-info" >
 									Paso 3 . Sala de espera de Atención Medica.      
@@ -149,15 +192,21 @@ $uname=$_SESSION['username'];
                               <div id="paso3">
                                   <button disabled  type="button" class="btn btn-secondary" >Paso 3</button>
                               </div>
-                                  
-							</div>
+                        
+                        
+					</div>
 				</div>
                 
-                
-				<div class="col-lg-3 col-md-6 col-sm-12">
-                         <div class="serviceBox">
-								<div class="service-icon" id="div_icono_box" ><i class="fa fa-user-md" aria-hidden="true"></i></div>
-								<h2 class="title">Acceso Box Virtual</h2>
+                <div class="col-lg-4 col-md-6 col-sm-12" id="div_paso4">
+					<div class="blog-inner">
+                        <div class="item-meta">
+							<a href="#"><i class="fa fa-user-md"></i> Acceso Box Virtual</a>
+						</div>
+						<div class="blog-img">
+							<img class="img-fluid" src="assets/images/paso4.1.jpg" alt="" />
+						</div>
+						
+                        
                              <div id="label_box">
                                  <p class="text-info" >
 									Paso 4. Ingreso a la Atención Medica.
@@ -166,23 +215,22 @@ $uname=$_SESSION['username'];
                              <div id="paso4"> 
                                  <button disabled  type="button" class="btn btn-secondary" >Paso 4</button>
                              </div>
-								  
-							</div>
+                        
+					</div>
 				</div>
                 
+                  <div class="col-lg-2 col-md-6 col-sm-12">
+                </div>
                 
+			</div>
                 
-                
-               
-			</div> 
+                 
             
- 
 		</div>
         
+        
 	</div>
-	<!-- End Home -->
-    
-   
+	<!-- End home nuevo-->
             
 	
 

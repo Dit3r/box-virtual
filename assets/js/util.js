@@ -158,6 +158,7 @@ function confirma_establecimiento(){
                     $("#div_icono_some").toggleClass('service-icon3');
                     $('#label_establecimiento').html("<p class='bg-info text-white' >"+response.establecimiento+"</p>"); 
                     $('#paso2').html("<button onclick='mostrarModalSome()' class='btn btn-primary submit' >Sector some ⮕</button>");
+                    location.href='#div_paso2';  
                     $('#label_some').html("<p class='text-primary'>Paso 2. Seleccione su sector SOME.</p>");
                           mostrarModalSome();
                     } else{
@@ -199,22 +200,23 @@ function confirma_some(){
                     $("#div_icono_sala_espera").toggleClass('service-icon3');    
                     switch (response.sector) {
                      case 'rojo':
-                     $('#label_some').html("<p class='bg-danger text-white'>Sector Rojo</p> </br>"); 
+                     $('#label_some').html("<p class='bg-danger text-white'>Sector Rojo</p> "); 
                      break;
                      case 'verde':
-                     $('#label_some').html("<p class='bg-success text-white'>Sector Verde</p> </br>"); 
+                     $('#label_some').html("<p class='bg-success text-white'>Sector Verde</p> "); 
                      break;
                      case 'amarillo':
-                     $('#label_some').html("<p class='bg-warning text-white'>Sector Amarillo</p> </br>"); 
+                     $('#label_some').html("<p class='bg-warning text-white'>Sector Amarillo</p> "); 
                      break;
                      case 'azul':
-                     $('#label_some').html("<p class='bg-primary text-white'>Sector Azul</p> </br>"); 
+                     $('#label_some').html("<p class='bg-primary text-white'>Sector Azul</p> "); 
                      break;
                      default:
-                      $('#label_some').html("<p class='bg-secondary text-white'>Sin Sector</p> </br>"); 
+                      $('#label_some').html("<p class='bg-secondary text-white'>Sin Sector</p> "); 
                       }  
                     $('#paso3').html("<button onclick='mostrarModalSalaespera()' class='btn btn-primary submit' >Sala de espera ⮕</button>");
                     $('#label_sala_espera').html("<p class='text-primary'>Paso 3 . Sala de espera de Atención Medica.</p>");
+                    location.href='#div_paso3';  
                           mostrarModalSalaespera();
                     } 
                     else{
@@ -295,12 +297,13 @@ function mostarModalBox(){
                     if(response.resp){
                     $("#cambiar").html("Box Virtual");
                     $("#div_icono_sala_espera").toggleClass('service-icon5');
-                    $('#label_sala_espera').html("<p class='bg-info text-white' >Sala de espera Revisada</p> </br>");     
+                    $('#label_sala_espera').html("<p class='bg-info text-white' >Sala de espera Revisada</p>");     
                     $('#paso3').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");
-                    $('#label_box').html("<p class='bg-success text-white' >En llamada</p> </br>");
+                    $('#label_box').html("<p class='bg-success text-white' >En llamada</p>");
                     $("#div_icono_box").toggleClass('service-icon5');    
                     $('#paso4').html("<button onclick='mostrarModalSalaespera()' class='btn btn-primary submit' >Box Virtual</button>");    
                  $('#cargacontenido').html('<center><iframe width="700" height="500"  src="'+response.url+'" allow="camera;microphone" frameborder="0" allowfullscreen ></iframe> </center>');
+                    location.href='#div_paso4';  
                   //window.open(response.url,$('#cargacontenido').target, 'width=700px,height=500px');
                 
                     } else{
