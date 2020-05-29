@@ -53,8 +53,13 @@ $uname=$_SESSION['username'];
 		<div class="container">
 			<div class="row">
              
+                <div class="col-md-2">
+                    <div class="left-top2" >
+                    <a class="navbar-brand text-success" href="home.php"><img src="assets/images/favicon.ico" alt="image"><span class="title">Box Virtual</span></a>
+                    </div>
+                </div>
                       
-				<div class="col-lg-8">
+				<div class="col-md-6">
                     
 					   <div class="left-top">
 						<a class="new-btn-d br-2" href="#"><span><i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Bienvenido: <?php echo "$uname"; ?></span></a>
@@ -62,7 +67,7 @@ $uname=$_SESSION['username'];
                     
                 </div>
                     
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     
                        <div class="left-top">
                         <a href="logout.php" class="new-btn-d br-2" ><span><i class="fa fa-power-off fa-2x" aria-hidden="true"></i> Cerrar Sesion
@@ -70,37 +75,14 @@ $uname=$_SESSION['username'];
                        </div>
                         
                 </div>
-                    
+                
+                   
    		
 			</div>
 		</div>
 	</div>
 	<!-- End top bar -->
 	
-	<!-- Start header -->
-
-	<header class="top-header">
-		<nav class="navbar header-nav navbar-expand-lg">
-            <div class="container">
-				<a class="navbar-brand" href="home.php"><img src="assets/images/logo.png" alt="image"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
-					<span></span>
-					<span></span>
-					<span></span>
-				</button>
-		
-                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
-                    <ul class="navbar-nav">
-                        
-                        <li><a class="nav-link"  href="#home"> <label id="cambiar">Home</label> </a></li>
-						       
-                    </ul>
-                </div>
-            </div>
-        </nav>
-	</header>
-    
-	<!-- End header -->
     
 	            
     <!-- Start Home nuevo -->
@@ -113,7 +95,7 @@ $uname=$_SESSION['username'];
                   <div class="col-lg-2 col-md-6 col-sm-12">
                 </div>
                 
-				<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="col-lg-4 col-md-6 col-sm-12" id="div_paso1">
 					<div class="blog-inner">
                         
                       <div class="item-meta">

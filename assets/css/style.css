@@ -206,13 +206,23 @@ button:focus{
 
 .main-top{
 	background: #12557f;
-    padding: 1px;
+    padding: 0px;
 }
 .left-top a{
 	display: inline-block;
 	color: #ffffff;
 	float: left;
-	font-size: 14px;
+	font-size: 12px;
+}
+
+
+
+.left-top2 a{
+	display: inline-block;
+	float: left;
+    background:#ffffff;
+    height: 40px;
+    width: 145px;
 }
 
 .new-btn-d{

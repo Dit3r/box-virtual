@@ -5,8 +5,7 @@ $(document).ready(function() {
 
 
 ////funcion muestra establecimientos///////////
-function mostrarModalEstablecimiento(){
-$("#cambiar").html("Establecimiento");    
+function mostrarModalEstablecimiento(){   
  $("#modal_establecimientos").modal('show');
      cargaRegion();
 }
@@ -14,16 +13,14 @@ $("#cambiar").html("Establecimiento");
 ////fin funcion muestra establecimientos ///////////
 
 ////funcion muestra establecimientos///////////
-function mostrarModalSome(){
-$("#cambiar").html("SOME");      
+function mostrarModalSome(){  
  $("#modal_some").modal('show');
 }
 ////fin funcion muestra establecimientos ///////////
 
 
 ////funcion muestra establecimientos///////////
-function mostrarModalSalaespera(){
-$("#cambiar").html("Sala de Espera");      
+function mostrarModalSalaespera(){     
  $("#modal_sala_espera").modal('show');
 }
 ////fin funcion muestra establecimientos ///////////
@@ -154,8 +151,6 @@ function confirma_establecimiento(){
                     if(response.resp){
                     $("#modal_establecimientos").modal('hide');     
                     $('#paso1').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");    
-                    $("#div_icono_establecimiento").toggleClass('service-icon2');
-                    $("#div_icono_some").toggleClass('service-icon3');
                     $('#label_establecimiento').html("<p class='bg-info text-white' >"+response.establecimiento+"</p>"); 
                     $('#paso2').html("<button onclick='mostrarModalSome()' class='btn btn-primary submit' >Sector some ⮕</button>");
                     location.href='#div_paso2';  
@@ -195,9 +190,7 @@ function confirma_some(){
                     //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
                     if(response.resp){
                     $("#modal_some").modal('hide');     
-                    $('#paso2').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");
-                    $("#div_icono_some").toggleClass('service-icon4');
-                    $("#div_icono_sala_espera").toggleClass('service-icon3');    
+                    $('#paso2').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");  
                     switch (response.sector) {
                      case 'rojo':
                      $('#label_some').html("<p class='bg-danger text-white'>Sector Rojo</p> "); 
@@ -296,11 +289,9 @@ function mostarModalBox(){
                     //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
                     if(response.resp){
                     $("#cambiar").html("Box Virtual");
-                    $("#div_icono_sala_espera").toggleClass('service-icon5');
                     $('#label_sala_espera').html("<p class='bg-info text-white' >Sala de espera Revisada</p>");     
                     $('#paso3').html("<button disabled class='btn btn-success'  >Hecho ✓</button>");
-                    $('#label_box').html("<p class='bg-success text-white' >En llamada</p>");
-                    $("#div_icono_box").toggleClass('service-icon5');    
+                    $('#label_box').html("<p class='bg-success text-white' >En llamada</p>");    
                     $('#paso4').html("<button onclick='mostrarModalSalaespera()' class='btn btn-primary submit' >Box Virtual</button>");    
                  $('#cargacontenido').html('<center><iframe width="700" height="500"  src="'+response.url+'" allow="camera;microphone" frameborder="0" allowfullscreen ></iframe> </center>');
                     location.href='#div_paso4';  
