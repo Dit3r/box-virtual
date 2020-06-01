@@ -62,7 +62,7 @@ $uname=$_SESSION['username'];
 				<div class="col-md-6">
                     
 					   <div class="left-top">
-						<a class="new-btn-d br-2" href="#"><span><i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Bienvenido: <?php echo "$uname"; ?></span></a>
+						<a class="new-btn-d br-2" href="#"><span><i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Bienvenido: <?php echo "$uname"; Rut: $_SESSION['rut'] ;  ?></span></a>
 					   </div>
                     
                 </div>
@@ -110,7 +110,7 @@ $uname=$_SESSION['username'];
 						
                                 <div id="label_establecimiento">
                                 <p class="text-info" >
-								 Paso 1. Seleccione su establecimiento.
+								 Paso 1. Seleccione su Establecimiento.
 								</p>
                                </div>
 						
@@ -124,7 +124,7 @@ $uname=$_SESSION['username'];
 				<div class="col-lg-4 col-md-6 col-sm-12" id="div_paso2">
 					<div class="blog-inner">
                          <div class="item-meta">
-							<a href="#"><i class="fa fa-address-card-o"></i> Sector Some </a>
+							<a href="#"><i class="fa fa-address-card-o"></i> Sector SOME </a>
 						</div>
 						<div class="blog-img">
 							<img class="img-fluid" src="assets/images/paso2.jpg" alt="" />
@@ -133,7 +133,7 @@ $uname=$_SESSION['username'];
                            
                                <div id="label_some" >
                                 <p class="text-info" >
-								Paso 2. Seleccione su sector SOME.
+								Paso 2. Seleccione su Sector SOME.
 								</p>
                                </div>
                                <div id="paso2">
@@ -159,7 +159,7 @@ $uname=$_SESSION['username'];
 					<div class="blog-inner">
                         
                          <div class="item-meta">
-							<a href="#"><i class="fa fa-clock-o"></i> Sala de espera </a>
+							<a href="#"><i class="fa fa-clock-o"></i> Sala de Espera </a>
 						</div>
                         
 						<div class="blog-img">
@@ -168,7 +168,7 @@ $uname=$_SESSION['username'];
                        
                               <div id="label_sala_espera">
                                 <p class="text-info" >
-									Paso 3 . Sala de espera de Atención Medica.      
+									Paso 3 . Sala de Espera de Atención Medica.      
 								</p>
                               </div>	
                               <div id="paso3">
@@ -737,7 +737,7 @@ $uname=$_SESSION['username'];
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="footer-company-name">Southcode. &copy; 2020 <a href="#">Box Virtual</a></p>
+					<p class="footer-company-name"><a href="https://www.southcode.cl" target="_blank" >www.southcode.cl</a> &copy; 2020 <a href="#">Box Virtual</a></p>
 				</div>
 			</div>
 		</div>

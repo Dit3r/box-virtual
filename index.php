@@ -18,7 +18,7 @@
 		<h2>Ingresar al Box Virtual</h2>
 	<form method="POST" action="controller/loguear.php" id="loginform"> 
          <!--  <form method="POST"  id="loginform">-->
-			<input type="text" name="username" id="username" placeholder="Ingrese su Usuario">
+			<input type="text" name="username" id="username" placeholder="Ingrese su Rut sin guión ni puntos ej: 123456789">
 			<input type="password" name="password" id="password" placeholder="Ingrese su Contraseña">
 			<input type="submit" value="Ingresar" id="btn_login" >   
 		
