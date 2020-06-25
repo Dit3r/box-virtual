@@ -1,11 +1,12 @@
 <?php
 include '../bd/conexion.php';
+include '../config/properties.php';
 //aca se pondra un estado de base de datos
 session_start();
 $user=$_SESSION['username'];
 $id= $_SESSION['id'];
 
-$queryv="SELECT * FROM paciente.videousuario where id_usuario='$id'";
+$queryv="SELECT * FROM paciente.videousuario where id_usuario='$id' order by id desc limit 1 ";
 $resv=pg_query($con,$queryv);
 $rowsv = pg_num_rows($resv);
 $datav = pg_fetch_array($resv);   

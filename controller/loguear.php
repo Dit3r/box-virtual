@@ -1,30 +1,48 @@
 <?php
 
 include '../bd/conexion.php';
-if($_SERVER['REQUEST_METHOD']=="POST"){
-$username=$_POST['username'];    
-$password=$_POST['password'];
+include '../config/properties.php';
+include_once '../logger.php';
+//if($_SERVER['REQUEST_METHOD']=="POST"){
+    
+//$username=$_POST['username'];    
+//$password=$_POST['password'];
+$username = $_REQUEST['username'];
+$password = $_REQUEST['password'];
 
 //para utilizar servicio
-//$data = json_decode( file_get_contents('http://localhost:8083/api/v1/usuarios/'.$username), true );
- 
+//$data = json_decode( file_get_contents($hostObetenerusuario.$username), true );
+
+
 $query="SELECT * FROM paciente.usuario where id='$username' and contrasena='$password'";
 $res=pg_query($con,$query);
 $rows = pg_num_rows($res);
 $data = pg_fetch_array($res);  
+
        
-  
-    
-session_start();
- if(trim($data['contrasena']) == $password){
- 	header('location:../home.php');
+$resp = true;
+
+
+ if(!empty($data)){
+     
+     
+    session_start(); 
+ 	//header('location:../home.php');
  	$_SESSION['username']= $data['usuario'];
     $_SESSION['id'] =  $data['id'];
     $_SESSION['rut'] =  $data['rut'];
+     
  }
 else{
-	echo "Contraseña incorrecta" ;
+    
+    $resp= false;
 }
-}
+
+    
+      
+     $respuesta = array("resp"=> $resp);
+
+     echo json_encode($respuesta); 
+//}
 
 ?>

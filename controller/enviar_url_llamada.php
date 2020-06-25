@@ -1,6 +1,7 @@
 <?php
 
 include '../bd/conexion.php';
+include '../config/properties.php';
 //rescato el id
 
 session_start();
@@ -11,8 +12,11 @@ $id=$_SESSION['id'];
 $host= $_REQUEST['host'];
 $config= $_REQUEST['config'];
 
-//consumo servicio
-$data = json_decode( file_get_contents('https://api.mercadolibre.com/users/226384143'), true );
+
+//$data = json_decode( file_get_contents($hostLlamada.$id.$configllamada), true );
+
+$data = json_decode( file_get_contents($hostObetenerusuario.$id), true );
+$dato=  $data['usuario'];
 
 $resp = true;
 
@@ -20,11 +24,11 @@ $resp = true;
 if(empty($host)){$resp = false; }
 if(empty($config)){$resp = false; }
 //valido el servicio
-if(count($data) <= 4){$resp = false;}
+if(empty($dato) ){$resp = false;}
 //concateno el url
 
  
- $respuesta = array("resp"=> $resp,"url" => $host.$id.$config );
+$respuesta = array("resp"=> $resp,"data"=> $dato );
 
  echo json_encode($respuesta);
 

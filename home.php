@@ -4,7 +4,6 @@ include '../bd/conexion.php';
 
 session_start();
 $uname=$_SESSION['username'];
-
  if (empty($uname)) { 
   header("Location:index.php");
  }
@@ -62,7 +61,7 @@ $uname=$_SESSION['username'];
 				<div class="col-md-6">
                     
 					   <div class="left-top">
-						<a class="new-btn-d br-2" href="#"><span><i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Bienvenido: <?php echo "$uname"; Rut: $_SESSION['rut'] ;  ?></span></a>
+						<a class="new-btn-d br-2" href="#"><span><i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Bienvenido: <?php echo "$uname"; Rut:$_SESSION['rut'] ;  ?></span></a>
 					   </div>
                     
                 </div>
@@ -327,7 +326,8 @@ $uname=$_SESSION['username'];
                                     <div id="div_boton_est" class="form-group">
                                   
                                           <input id="confirmar_establecimiento" onclick="confirma_establecimiento()" class="btn btn-primary submit"  value="Confirmar" type="button" />
-                                           <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cerrar"/>
+                                           <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Ocultar"/>
+                                           <input type="button" class="btn btn-danger" onclick="mostrarModalConfirmaSalir()" value="Salir"/>
                 
                                     </div>
                                 </div>
@@ -408,8 +408,9 @@ $uname=$_SESSION['username'];
                                 <div class="col-md-12">
                                     <div id="div_boton_some" class="form-group">
                                   
-                                          <input id="confirmar_establecimiento" onclick="confirma_some()" class="btn btn-primary submit"  value="Confirmar" type="button" />
-                                           <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cerrar"/>
+                                        <input id="confirmar_some" onclick="confirma_some()" class="btn btn-primary submit"  value="Confirmar" type="button" />
+                                        <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Ocultar"/>
+                                        <input type="button" class="btn btn-danger" onclick="mostrarModalConfirmaSalir()" value="Salir"/>
                 
                                     </div>
                                 </div>
@@ -461,7 +462,7 @@ $uname=$_SESSION['username'];
                             <form> 
                             <div class="row">
                              
-                                <!-- Select Establecimienti -->
+                                <!-- Select Efermedad-->
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label" for="enfermedad">¿Presenta alguna de estas enfermedades?</label>
@@ -475,18 +476,18 @@ $uname=$_SESSION['username'];
                                         </select>
                                     </div>
                                 </div>
-                                <!-- Select Some -->
+                             
                                  <!-- Select alergia -->
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label" for="alergico">¿Es Alérgico?</label>
                                         <select id="alergico" name="alergico" class="form-control">
-                                            <option value="Si">Si</option>
-											<option value="No" selected>No</option>			
+                                            <option value="si">Si</option>
+											<option value="no" selected>No</option>			
                                         </select>
                                     </div>
                                 </div>
-                                <!-- Select Some -->
+                                <!-- Select si es alergico -->
                                 <div class="col-md-12">
                                     <div class="form-group">
                                        <label class="control-label" for="medicamento">Si es alérgico,indique a que cosas.</label>
@@ -607,7 +608,8 @@ $uname=$_SESSION['username'];
     <!-- termina contenido ---->  
         
            <div class="modal-footer">
-             <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cerrar"/>
+             <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Ocultar"/>
+               <input type="button" class="btn btn-danger" onclick="mostrarModalConfirmaSalir()" value="Salir"/>
            </div>
         
     </div>
@@ -715,9 +717,9 @@ $uname=$_SESSION['username'];
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+        <h5 class="modal-title" id="exampleModalLabel"> <p class="text-danger">Error</p> </h5>
       </div>
-      <div class="modal-body">
+      <div id="datovacioerror" class="modal-body">
         Error al procesar los datos.
       </div>
       <div class="modal-footer">
@@ -728,6 +730,26 @@ $uname=$_SESSION['username'];
   </div>
 </div>
 
+    <!--- modal confirmar salir de todo---->
+    <div id="confirmar" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><p class="text-danger">Advertencia</p> </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿Desea volver al comienzo y perder el progreso actual?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="confirmaSalir()">Aceptar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
     
     
         
@@ -765,6 +787,10 @@ $uname=$_SESSION['username'];
     <script src="assets/js/custom.js"></script>
         
    <script src="assets/js/util.js"></script>
+    <!-- el id para usarlo internamente en jscript -->
+    <script type="text/javascript">
+     var id =   <?php echo $_SESSION['id']; ?>
+    </script>
         
 </body>
 </html>

@@ -1,13 +1,14 @@
 <?php
 
 include '../bd/conexion.php';
+include '../config/properties.php';
 
 //variables que recibo
 $region = $_REQUEST['region'];
 $comuna = $_REQUEST['comuna'];
 $establecimiento = $_REQUEST['establecimiento'];
 //consumo servicio
-$data = json_decode( file_get_contents('https://api.mercadolibre.com/users/226384143'), true );
+$data = json_decode( file_get_contents($hostValidaEstablecimiento), true );
 
 $resp = true;
 

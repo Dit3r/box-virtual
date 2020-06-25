@@ -1320,7 +1320,8 @@ button:focus{
 	color: #ffffff;
 	display: inline-block;
 	border: none;
-     font-size: 20px;
+    font-size: 20px;
+    
 }
 .blog-inner .item-meta span{
 	color: #ffffff;
