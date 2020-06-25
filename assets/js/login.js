@@ -10,7 +10,7 @@ function login(){
                 url:   'controller/loguear.php', //archivo que recibe la peticion
                 type:  'post', //método de envio
                 beforeSend: function () {
-                        $("#procesa_login").html("<div class='loaderboton'></div> ");
+                        $("#procesa_login").html("<div class='loaderboton' style='margin:0 auto;'></div> ");
                 },
                 dataType: "json",
                 success:  function (response) {

@@ -31,7 +31,6 @@ $hostValidaEstablecimiento = "https://api.mercadolibre.com/users/226384143";
 
 $hostGetPrueba="https://api.mercadolibre.com/users/226384143";
 
-$status=0;
 
 ?>
 

@@ -107,13 +107,13 @@ $uname=$_SESSION['username'];
 								<div class="about-m">
 									<ul id="banner">
 										<li>
-											<img src="assets/images/about-img-01.jpg" alt="">
+											<img src="assets/images/home1.jpg" alt="">
 										</li>
 										<li>
-											<img src="assets/images/about-img-02.jpg" alt="">
+											<img src="assets/images/home2.jpg" alt="">
 										</li>
 										<li>
-											<img src="assets/images/about-img-03.jpg" alt="">
+											<img src="assets/images/home3.jpg" alt="">
 										</li>
 									</ul>
 								</div>
@@ -241,8 +241,7 @@ $uname=$_SESSION['username'];
     <div class="modal-content">
      
     <!-- empieza contenido-->
-        <div id="cargacontenido" class="modal-body">
-        <input id="status" type="hidden" >
+    <div id="cargacontenido" class="modal-body">
             
         <html>
         <head>
@@ -251,17 +250,17 @@ $uname=$_SESSION['username'];
         <script src="https://videoqa.boxvirtual.cl/external_api.js"></script>
         </head>
         <body>
-        <div class="conf_div" id="conf_div">
+        <div class="conf_div" id="conf_div" class="modal-body">
         </div>
         </body>
         </html> 
     
-        </div>
+    </div>
     <!-- termina contenido ---->  
         
            <div class="modal-footer">
              <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Ocultar"/>
-               <input type="button" class="btn btn-danger" onclick="mostrarModalConfirmaSalir()" value="Salir"/>
+             <input type="button" class="btn btn-danger" onclick="mostrarModalConfirmaSalir()" value="Salir"/>
            </div>
         
     </div>

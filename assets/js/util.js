@@ -14,11 +14,11 @@ function mostrarSalaDeEsepera(){
 function mostrarModalConfirmaSalir(){     
  $("#confirmar").modal('show');
 }
-////fin funcion muestra establecimientos ///////////
+////fin funcion confirma salir///////////
 
 function confirmaSalir(){     
     location.reload();
-    location.href='#about';  
+    location.href= '#about';  
     
 }
 
@@ -26,9 +26,9 @@ function confirmaSalir(){
 
 function llamarBox(){
     
-    var host = "https://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id=";
-    var config = "&width=700&heigth=500";
-    var urlOficial =  host+id+config;
+    //var host = "https://videoapsqa.boxvirtual.cl/apsvideoapi/meetings?id=";
+    //var config = "&width=700&heigth=500";
+    //var urlOficial =  host+id+config;
     
       // var parametros = {
            
@@ -37,7 +37,6 @@ function llamarBox(){
                // "config" : "&width=700&heigth=500"
         //};
         
-    
     $.ajax({
           url: "controller/llamada.php",
          // data: parametros,
@@ -62,8 +61,8 @@ function llamarBox(){
              var domain= "videoqa.boxvirtual.cl";
              var options={ 
              //roomName: response.data,
-             roomName: box,  
-             width: 700,
+             roomName: response.data,  
+             width: 750,
              height: 500,
              enableWelcomePage: false,
              p2p: { enabled: true,

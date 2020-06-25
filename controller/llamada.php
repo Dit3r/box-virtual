@@ -13,14 +13,12 @@ $id=$_SESSION['id'];
 //$config= $_REQUEST['config'];
 
 
-//$data = json_decode( file_get_contents($hostObetenerusuario.$id), true );
+//$json = json_decode( file_get_contents($hostObetenerusuario.$id), true );
 
 $json = json_decode( file_get_contents($hostLlamada2.$id.$configllamada2), true );
 $status=  $json['status'];
 $message = $json['message'];
 $data = $json['data'];
-
-//$data= json_decode( file_get_contents($hostLlamada.$id.$configllamada), true );
 
 
 //$resp = true;
@@ -29,17 +27,14 @@ $data = $json['data'];
 //if(empty($host)){$resp = false; }
 //if(empty($config)){$resp = false; }
 //valido el servicio
-//if(empty($dato) ){$resp = false;}
+//if(empty($json) ){$resp = false;}
 //concateno el url
 
  
 $respuesta = array("status"=> $status,"message"=> $message ,"data"=> $data );
 
-//$respuesta = array("data"=> $dato );
 
  echo json_encode($respuesta);
-
-
 
 
 
