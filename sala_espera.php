@@ -3,8 +3,6 @@
 include '../bd/conexion.php';
 include 'config/properties.php';
 
-$var = $_POST['dato'];
-
 session_start();
 $uname=$_SESSION['username'];
  if (empty($uname)) { 
@@ -244,19 +242,20 @@ $uname=$_SESSION['username'];
      
     <!-- empieza contenido-->
         <div id="cargacontenido" class="modal-body">
-        <input id="status"  type="hidden" value="0">
+        <input id="status" type="hidden" >
             
-            
-<!--
-         
-<html><head><meta charset="UTF-8"><title>APS Box</title><script src="https://videoqa.boxvirtual.cl/external_api.js"></script></head><body>
-<div class="conf_div" id="conf_div"></div><script type="text/javascript"> var domain= "videoqa.boxvirtual.cl"; var options={ 
-roomName: "BoxVirtual ae22a8fd-5946-4175-9ee0-365a18fba6c6",width: 700,height: 500,enableWelcomePage: false,p2p: { enabled: true,stunServers: [ { 
-urls: "stun:meet-jit-si-turnrelay.jitsi.net:443" } ],preferH264: true },parentNode: document.querySelector("#conf_div") } 
-var api= new JitsiMeetExternalAPI(domain,options);</script></body></html> -->
+        <html>
+        <head>
+        <meta charset="UTF-8">
+        <title>APS Box</title>
+        <script src="https://videoqa.boxvirtual.cl/external_api.js"></script>
+        </head>
+        <body>
+        <div class="conf_div" id="conf_div">
+        </div>
+        </body>
+        </html> 
     
- 
-            
         </div>
     <!-- termina contenido ---->  
         

@@ -3,7 +3,7 @@
 var myVar =  setInterval(llamarBox, 10000);
     
     
-function mostrarSalaDeEsepera( ){
+function mostrarSalaDeEsepera(){
         
  $("#modal_sala_espera").modal('show');
     
@@ -49,36 +49,31 @@ function llamarBox(){
                 },
           success: function(response) { 
               
-                if(response.status == 200) {
+              if(response.status == 200) {
                     
-                 $("#modal_loader").modal('hide');    
-                      
-                
-                    
-           // mostrarSalaDeEsepera();
-                                              
-            /*        
-               $.ajax({
-               data: {"dato" : response.status },
-               url: "sala_espera.php",
-               type: "post",
-               success:  function (response) {
-               }
-               });    
-               */
-                    
-                 //$('#cargacontenido').html('<center><iframe width="700" height="500"  src="'+response.data+'" allow="camera;microphone" frameborder="0" allowfullscreen ></iframe> </center>'); 
-                    
-                 var ventana = window.open('','video','height=500,width=700');       
-                 ventana.document.write(response.data);
+              $("#modal_loader").modal('hide');    
+                              
+              mostrarSalaDeEsepera();
+                          
+                // var ventana = window.open('','video','height=500,width=700');       
+                //ventana.document.write(response.data);
                  
-                 //ventana.document.write($('#cargacontenido').innerHTML);
-                 //ventana.document.close();
-                 //ventana.focus(); 
+             var box= "BoxVirtual 1209f140-c423-461c-9aa8-2433900ab9b5";               
+             var domain= "videoqa.boxvirtual.cl";
+             var options={ 
+             //roomName: response.data,
+             roomName: box,  
+             width: 700,
+             height: 500,
+             enableWelcomePage: false,
+             p2p: { enabled: true,
+             stunServers: [ { 
+             urls: "stun:meet-jit-si-turnrelay.jitsi.net:443" } ],
+             preferH264: true },
+             parentNode: document.querySelector("#conf_div") } 
+             var api= new JitsiMeetExternalAPI(domain,options);
 
-      
-                
-               clearInterval(myVar);
+             clearInterval(myVar);
   
               }else{
                    $("#fracaso").modal('show');
