@@ -10,6 +10,7 @@ $paterno = $_REQUEST['paterno'];
 $materno= $_REQUEST['materno'];
 $rut = $_REQUEST['rut'];
 $correo = $_REQUEST['correo'];
+$confirmaCorreo= $_REQUEST['confirma_correo'];
 $celular = $_REQUEST['celular'];
 $fijo= $_REQUEST['fijo'];
 $fecha_nacimiento= $_REQUEST['fecha_nacimiento'];

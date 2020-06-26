@@ -47,7 +47,7 @@ $("#modal_registro").modal('show');
 
 function recargaForm() {
     
-  $('#bodyForm').html('<form id="formRegistro"><div class="form-group"><label for="recipient-name" class="col-form-label">Nombres:</label><input type="txt_registro" class="form-control" id="nombres" required></div><div class="form-group"><label class="col-form-label">Apellido Paterno:</label><input type="txt_registro" class="form-control" id="paterno" required></div> <div class="form-group"><label  class="col-form-label">Apellido Materno:</label><input type="txt_registro" class="form-control" id="materno" required></div><div class="form-group"><label  class="col-form-label">Rut/Dni: </label><input type="txt_registro" class="form-control" id="rut" required></div> <div class="form-group"><label  class="col-form-label">Correo:</label><input type="txt_registro" class="form-control" id="correo" required></div><div class="form-group"><label  class="col-form-label">Número Celular:</label><input type="txt_registro" class="form-control" id="celular" required></div> <div class="form-group"><label  class="col-form-label">Número Fijo:</label><input type="txt_registro" class="form-control" id="fijo"></div><div class="form-group"><label  class="col-form-label">Fecha nacimiento:</label><input type="date" class="form-control" id="fecha_nacimiento" required></div><div class="form-group"><label  class="col-form-label">Direccion:</label><input type="txt_registro" class="form-control" id="direccion" required></div><div class="form-group"><label  class="col-form-label">Contraseña:</label><input type="password_registro" class="form-control" id="contrasena" required></div><div class="form-group"><label  class="col-form-label">Confirme Contraseña:</label><input type="password_registro" class="form-control" id="confirma_contrasena" required></div> </form>');
+  $('#bodyForm').html('<form id="formRegistro"><div class="form-group"><label for="recipient-name" class="col-form-label">Nombres:</label><input type="txt_registro" class="form-control" id="nombres" required></div><div class="form-group"><label class="col-form-label">Apellido Paterno:</label><input type="txt_registro" class="form-control" id="paterno" required></div> <div class="form-group"><label  class="col-form-label">Apellido Materno:</label><input type="txt_registro" class="form-control" id="materno" required></div><div class="form-group"><label  class="col-form-label">Rut/Dni: </label><input type="txt_registro" class="form-control" id="rut" required></div> <div class="form-group"><label  class="col-form-label">Correo:</label><input type="txt_registro" class="form-control" id="correo" required></div>  <div class="form-group"><label  class="col-form-label">Confirmar correo:</label><input type="txt_registro" class="form-control" id="confirma_correo" required></div>  <div class="form-group"><label  class="col-form-label">Número Celular:</label><input type="txt_registro" class="form-control" id="celular" required></div> <div class="form-group"><label  class="col-form-label">Número Fijo:</label><input type="txt_registro" class="form-control" id="fijo"></div><div class="form-group"><label  class="col-form-label">Fecha nacimiento:</label><input type="date" class="form-control" id="fecha_nacimiento" required></div><div class="form-group"><label  class="col-form-label">Direccion:</label><input type="txt_registro" class="form-control" id="direccion" required></div><div class="form-group"><label  class="col-form-label">Contraseña:</label><input type="password_registro" class="form-control" id="contrasena" required></div><div class="form-group"><label  class="col-form-label">Confirme Contraseña:</label><input type="password_registro" class="form-control" id="confirma_contrasena" required></div> </form>');
     
   }
 
@@ -61,6 +61,7 @@ $resp = true;
  if($('#materno').val()==""){$resp = false; }
  if($('#rut').val()==""){$resp = false; }
  if($('#correo').val()==""){$resp = false; }
+ if($('#confirma_correo').val()==""){$resp = false; }    
  if($('#celular').val()==""){$resp = false; }
  if($('#fijo').val()==""){$resp = false; }
  if($('#fecha_nacimiento').val()=="") {$resp = false; }         
@@ -68,6 +69,7 @@ $resp = true;
  if($('#contrasena').val()==""){$resp = false; }
  if($('#confirma_contrasena').val()=="") {$resp = false; }
  if(   ( $('#contrasena').val() != $('#confirma_contrasena').val() ) ){ $resp = false; }
+ if(   ( $('#correo').val() != $('#confirma_correo').val() ) ){ $resp = false; }    
  return $resp;    
 
     
@@ -84,6 +86,7 @@ function registroPaciente(){
                "materno" : $('#materno').val(),
                "rut" : $('#rut').val(),
                "correo" : $('#correo').val(),
+               "confirma_correo" : $('#confirma_correo').val(),
                "celular": $('#celular').val(),
                "fijo" : $('#fijo').val(),
                "fecha_nacimiento" : $('#fecha_nacimiento').val(),

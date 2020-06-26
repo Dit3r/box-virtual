@@ -76,12 +76,17 @@ include_once '../logger.php';
             <input type="txt_registro" maxlength="10" class="form-control" id="rut" required>
           </div> 
             
-          <div class="form-group">
+           <div class="form-group">
             <label  class="col-form-label">Correo:</label>
             <input type="txt_registro" class="form-control" id="correo" required>
             </div>
             
-         <div class="form-group">
+            <div class="form-group">
+            <label  class="col-form-label">Confirmar correo:</label>
+            <input type="txt_registro" class="form-control" id="confirma_correo" required>
+            </div>
+            
+          <div class="form-group">
             <label  class="col-form-label">Número Celular:</label>
             <input type="txt_registro" class="form-control" id="celular" required>
           </div> 
