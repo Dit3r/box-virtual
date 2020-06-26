@@ -43,14 +43,17 @@ function llamarBox(){
           type: "get",
           dataType: "json",
               beforeSend: function () {
-              $("#modal_loader").modal('show');
-              $("#cargaloader").html("<div class='spinner1'></div> ");
+            //  $("#modal_loader").modal('show');
+            //  $("#cargaloader").html("<div class='spinner1'></div> ");
+                $("#loader").html("<div class='spinner1'></div> ");
+                  
                 },
           success: function(response) { 
               
               if(response.status == 200) {
                     
-              $("#modal_loader").modal('hide');    
+             // $("#modal_loader").modal('hide');    
+             $("#loader").html("<h2>Box Virtual</h2> ");          
                               
               mostrarSalaDeEsepera();
                           
@@ -74,16 +77,22 @@ function llamarBox(){
 
              clearInterval(myVar);
   
-              }else{
-                   $("#fracaso").modal('show');
-                   $("#datovacio").html(response.data);
               }
+              
+              else{
+                  $("#loader").html("<h2>Box Virtual</h2> ");      
+                  //$("#modal_loader").modal('hide');    
+                  // $("#fracaso").modal('show');
+                   //$("#datovacio").html(response.data);
+              }
+              
         
     },
           error: function(jqXHR, textStatus, error) { 
+              $("#loader").html("<h2>Box Virtual</h2> ");   
               
               $("#error").modal('show');
-              $("#datovacioerror").html("Error en servidor.");
+              $("#datovacioerror").html("Error en servidor de la llamada.");
     
     }
         });

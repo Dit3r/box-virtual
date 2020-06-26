@@ -17,12 +17,14 @@ $direccion=$_REQUEST['direccion'];
 $contrasena=  $_REQUEST['contrasena'];
 $confirma_contrasena= $_REQUEST['confirma_contrasena'];
 
+$id= intval(preg_replace('/[^0-9]+/', '', $rut), 10); 
 
 
+$query = "INSERT INTO paciente.paciente (contrasena,fijo,direccion,correo,nombres,paterno,materno,id,celular,fecha_nacimiento,rut)
+VALUES ('$contrasena','$fijo','$direccion','$correo','$nombres','$paterno','$materno',111111111,'$celular','1991-08-30','$rut')";
 
-$query = "INSERT INTO  paciente.paciente (nombres,paterno,materno,rut,correo,celular,fijo,fecha_nacimiento,direccion,id,contrasena) VALUES ('$nombres','$paterno','$materno','$rut','$correo','$celular','$fijo','$fecha_nacimiento','$direccion,'$id','$contrasena')";
 //execute the query here
-$result = pg_query($con, $query); //if you are using pg_query and $conn is the connection resource
+$result = pg_query($con,$query); //if you are using pg_query and $conn is the connection resource
 // Interni
 
 /*
@@ -34,15 +36,10 @@ $datav = pg_fetch_array($resv);
 $id_video= $datav['id'];
 
 */
+
 $resp = true;
 
-if(empty($result)){
-    
-$resp = false;
-    
-}
-
-
+if($result == false){$resp = false; }
 
 
 /*
@@ -99,7 +96,11 @@ curl_close($ch);
 
 
  
- $respuesta = array("resp"=> $resp);
+ //$respuesta = array("resp"=> $result);
+
+//$respuesta = array("resp"=> $nombres." ".$materno." ".$paterno." ".$rut." ".$correo." ".$celular." ".$fijo." ".$fecha_nacimiento." ".$direccion." ".$contrasena." ".$confirma_contrasena);
+
+$respuesta = array("resp"=> $resp);
 
  echo json_encode($respuesta);
 

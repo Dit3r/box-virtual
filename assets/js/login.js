@@ -68,17 +68,20 @@ function registroPaciente(){
                 },
                 dataType: "json",
                 success:  function (response) {
+                    
                     //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
                     if(response.resp){
                         
+                        $("#modal_registro").modal('hide');
                         
                         $("#exito").modal('show');
-                        window.location.href = "index.php";
-                        $("#username").focus();
                         
+                        //window.location.href = "index.php";
                         
-                        
+                        $('#username').focus();
+                          
                     } else{
+                        
                     $("#fracaso").modal('show');
                         
                     $("#procesa_registro").html('<button type="button" class="form-control" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="button" onclick="registroPaciente()" class="btn btn-primary">Registrar</button>');
@@ -88,6 +91,8 @@ function registroPaciente(){
                 },
               error:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
                     
+                   alert(response.resp);
+                  
                    $("#error").modal('show');
                   
                    $("#procesa_registro").html('<button type="button" class="form-control" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="button" onclick="registroPaciente()" class="btn btn-primary">Registrar</button>');

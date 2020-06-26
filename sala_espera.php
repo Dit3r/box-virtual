@@ -89,8 +89,8 @@ $uname=$_SESSION['username'];
 		<div class="about-a1">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12">
-						<div class="title-box">
+					<div class="col-lg-12" id>
+						<div class="title-box" id="loader">
 							<h2>Box Virtual</h2>
 						</div>
 					</div>
@@ -98,7 +98,7 @@ $uname=$_SESSION['username'];
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="row align-items-center about-main-info">
-							<div class="col-lg-6 col-md-6 col-sm-12">
+							<div class="col-lg-6 col-md-6 col-sm-12" >
 								<h2> Bienvenido a Box Virtual </h2>
 								<p> Aqui un texto...</p>
 								<a href="#" class="new-btn-d br-2">Ir a otra pagina de info</a>
