@@ -14,14 +14,17 @@ $celular = $_REQUEST['celular'];
 $fijo= $_REQUEST['fijo'];
 $fecha_nacimiento= $_REQUEST['fecha_nacimiento'];
 $direccion=$_REQUEST['direccion'];
-$contrasena=  $_REQUEST['contrasena'];
+$contrasena= $_REQUEST['contrasena'];
 $confirma_contrasena= $_REQUEST['confirma_contrasena'];
+
+$contrasenaMD5 = md5($contrasena);
+
 
 $id= intval(preg_replace('/[^0-9]+/', '', $rut), 10); 
 
 
 $query = "INSERT INTO paciente.paciente (contrasena,fijo,direccion,correo,nombres,paterno,materno,id,celular,fecha_nacimiento,rut)
-VALUES ('$contrasena','$fijo','$direccion','$correo','$nombres','$paterno','$materno',111111111,'$celular','1991-08-30','$rut')";
+VALUES ('$contrasenaMD5','$fijo','$direccion','$correo','$nombres','$paterno','$materno',$id,'$celular','$fecha_nacimiento','$rut')";
 
 //execute the query here
 $result = pg_query($con,$query); //if you are using pg_query and $conn is the connection resource

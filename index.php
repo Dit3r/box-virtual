@@ -54,36 +54,36 @@ include_once '../logger.php';
           <span class="btn btn-danger" aria-hidden="true">X</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form>
+      <div class="modal-body" id="bodyForm">
+        <form id="formRegistro">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nombres:</label>
-            <input type="txt_registro" class="form-control" id="nombres">
+            <input type="txt_registro" class="form-control" id="nombres" required>
           </div>
             
           <div class="form-group">
             <label class="col-form-label">Apellido Paterno:</label>
-            <input type="txt_registro" class="form-control" id="paterno">
+            <input type="txt_registro" class="form-control" id="paterno" required>
           </div>
             
           <div class="form-group">
             <label  class="col-form-label">Apellido Materno:</label>
-            <input type="txt_registro" class="form-control" id="materno">
+            <input type="txt_registro" class="form-control" id="materno" required>
           </div>
             
           <div class="form-group">
             <label  class="col-form-label">Rut/Dni: </label>
-            <input type="txt_registro" class="form-control" id="rut">
+            <input type="txt_registro" maxlength="10" class="form-control" id="rut" required>
           </div> 
             
           <div class="form-group">
             <label  class="col-form-label">Correo:</label>
-            <input type="txt_registro" class="form-control" id="correo">
+            <input type="txt_registro" class="form-control" id="correo" required>
             </div>
             
          <div class="form-group">
             <label  class="col-form-label">Número Celular:</label>
-            <input type="txt_registro" class="form-control" id="celular">
+            <input type="txt_registro" class="form-control" id="celular" required>
           </div> 
             
          <div class="form-group">
@@ -93,22 +93,22 @@ include_once '../logger.php';
             
           <div class="form-group">
             <label  class="col-form-label">Fecha nacimiento:</label>
-            <input type="date" class="form-control" id="fecha_nacimiento">
+            <input type="date" class="form-control" id="fecha_nacimiento" required>
           </div>
             
             <div class="form-group">
             <label  class="col-form-label">Direccion:</label>
-            <input type="txt_registro" class="form-control" id="direccion">
+            <input type="txt_registro" class="form-control" id="direccion" required>
            </div> 
             
             <div class="form-group">
             <label  class="col-form-label">Contraseña:</label>
-            <input type="password_registro" class="form-control" id="contrasena">
+            <input type="password_registro" class="form-control" id="contrasena" required>
            </div>
             
             <div class="form-group">
             <label  class="col-form-label">Confirme Contraseña:</label>
-            <input type="password_registro" class="form-control" id="confirma_contrasena">
+            <input type="password_registro" class="form-control" id="confirma_contrasena" required>
            </div> 
     
         </form>
