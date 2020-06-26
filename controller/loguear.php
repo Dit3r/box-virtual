@@ -14,7 +14,7 @@ $password = $_REQUEST['password'];
 //$data = json_decode( file_get_contents($hostObetenerusuario.$username), true );
 
 
-$query="SELECT * FROM paciente.usuario where id='$username' and contrasena='$password'";
+$query="SELECT * FROM paciente.paciente where id='$username' and contrasena='$password'";
 $res=pg_query($con,$query);
 $rows = pg_num_rows($res);
 $data = pg_fetch_array($res);  
@@ -28,7 +28,7 @@ $resp = true;
      
     session_start(); 
  	//header('location:../home.php');
- 	$_SESSION['username']= $data['usuario'];
+ 	$_SESSION['username']= $data['nombres'];
     $_SESSION['id'] =  $data['id'];
     $_SESSION['rut'] =  $data['rut'];
      

@@ -29,15 +29,117 @@ include_once '../logger.php';
     
 	<div id="log" class="formbox">
 		<h2>Ingresar al Box Virtual</h2>
-	<form > 
+	    <form> 
 			<input type="text"  id="username" placeholder="Ingrese su Rut sin guión ni puntos ej: 123456789">
 			<input type="password"  id="password" placeholder="Ingrese su Contraseña">
             <div id="procesa_login">
-			<input type="submit" onclick="login()" value="Ingresar" id="btn_login" >   
+			<input type="submit" onclick="login()" value="Ingresar" id="btn_login" > 
             </div>
-		
+               
 		</form>
-	</div><!--end of formbox-->
+        
+        <button class="button" onclick="abrirModalRegistro()" >Registrar</button>
+           
+	  </div><!--end of formbox-->
+     
+   
+<!--modal Registro-->
+
+    <div class="modal fade" id="modal_registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registro Paciente</h5>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+          <span class="btn btn-danger" aria-hidden="true">X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombres:</label>
+            <input type="txt_registro" class="form-control" id="nombres">
+          </div>
+            
+          <div class="form-group">
+            <label class="col-form-label">Apellido Paterno:</label>
+            <input type="txt_registro" class="form-control" id="paterno">
+          </div>
+            
+          <div class="form-group">
+            <label  class="col-form-label">Apellido Materno:</label>
+            <input type="txt_registro" class="form-control" id="materno">
+          </div>
+            
+          <div class="form-group">
+            <label  class="col-form-label">Rut/Dni: </label>
+            <input type="txt_registro" class="form-control" id="rut">
+          </div> 
+            
+          <div class="form-group">
+            <label  class="col-form-label">Correo:</label>
+            <input type="txt_registro" class="form-control" id="correo">
+            </div>
+            
+         <div class="form-group">
+            <label  class="col-form-label">Número Celular:</label>
+            <input type="txt_registro" class="form-control" id="celular">
+          </div> 
+            
+         <div class="form-group">
+            <label  class="col-form-label">Número Fijo:</label>
+            <input type="txt_registro" class="form-control" id="fijo">
+          </div>
+            
+          <div class="form-group">
+            <label  class="col-form-label">Fecha nacimiento:</label>
+            <input type="date" class="form-control" id="fecha_nacimiento">
+          </div>
+            
+            <div class="form-group">
+            <label  class="col-form-label">Direccion:</label>
+            <input type="txt_registro" class="form-control" id="direccion">
+           </div> 
+            
+            <div class="form-group">
+            <label  class="col-form-label">Contraseña:</label>
+            <input type="password_registro" class="form-control" id="contrasena">
+           </div>
+            
+            <div class="form-group">
+            <label  class="col-form-label">Confirme Contraseña:</label>
+            <input type="password_registro" class="form-control" id="confirma_contrasena">
+           </div> 
+    
+        </form>
+      </div>
+      <div class="modal-footer" id="procesa_registro">
+        <button type="button" class="form-control" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" onclick="registroPaciente()" class="btn btn-primary">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+        
+    
+    
+        <!--modal exito -->
+<div class="modal fade" id="exito" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Opercación exitosa</h5>
+      </div>
+      <div class="modal-body">
+        Registro exitoso.
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-success" data-dismiss="modal"> Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
     
     
        <!--modal fracaso -->
