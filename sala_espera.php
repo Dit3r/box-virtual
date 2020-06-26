@@ -236,7 +236,7 @@ $uname=$_SESSION['username'];
     
     
     <!-- modal  sector sala de espera--->
-<div id="modal_sala_espera" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="overflow-y: scroll;">
+<div id="modal_sala_espera" class="modal fade bd-example-modal-lg" tabindex="-1" data-backdrop="static" data-keyboard="false"  role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="overflow-y: scroll;" >
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
      
@@ -259,7 +259,7 @@ $uname=$_SESSION['username'];
     <!-- termina contenido ---->  
         
            <div class="modal-footer">
-             <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Ocultar"/>
+          <!--   <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Ocultar"/> -->
              <input type="button" class="btn btn-danger" onclick="mostrarModalConfirmaSalir()" value="Salir"/>
            </div>
         
@@ -272,7 +272,7 @@ $uname=$_SESSION['username'];
     
     
     
-    <!-- modal  loader--->
+    <!-- modal  loader no en uso--->
 <div id="modal_loader" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="overflow-y: scroll;">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -291,7 +291,7 @@ $uname=$_SESSION['username'];
   </div>
 </div>
 
-<!--- fin modal loader----->    
+<!--- fin modal loader no en uso----->    
     
 
     
@@ -362,7 +362,7 @@ $uname=$_SESSION['username'];
         </button>
       </div>
       <div class="modal-body">
-        <p>¿Desea volver al comienzo y perder el progreso actual?</p>
+        <p>¿Esta seguro?. Al realizar esta accion se perderà la llamada actual.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" onclick="confirmaSalir()">Aceptar</button>

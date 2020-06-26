@@ -7,6 +7,7 @@ function mostrarSalaDeEsepera(){
         
  $("#modal_sala_espera").modal('show');
     
+    
 }
 
 
