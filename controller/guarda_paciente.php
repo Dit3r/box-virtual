@@ -31,16 +31,6 @@ VALUES ('$contrasenaMD5','$fijo','$direccion','$correo','$nombres','$paterno','$
 $result = pg_query($con,$query); //if you are using pg_query and $conn is the connection resource
 // Interni
 
-/*
-//variables de BD
-$queryv="SELECT * FROM paciente.paciente where id_usuario='$id' and vigente=1 order by id desc limit 1" ;
-$resv=pg_query($con,$queryv);
-$rowsv = pg_num_rows($resv);
-$datav = pg_fetch_array($resv);  
-$id_video= $datav['id'];
-
-*/
-
 $resp = true;
 
 if($result == false){$resp = false; }

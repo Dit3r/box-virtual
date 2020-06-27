@@ -38,7 +38,7 @@ input[type="number"] {
 input[type="date"] {
 	border: 1px solid #3cb371;
 	width: 98%;
-	height:  25px;
+	height:  30px;
 	border-radius:  5px;
 	padding-left: 10px;
 	margin-bottom:  8px;
@@ -56,7 +56,7 @@ input[type="password"] {
 input[type="password_registro"] {
     border: 1px solid #3cb371;
     width: 98%;
-    height: 25px;
+    height: 30px;
     border-radius: 5px;
     padding-left: 10px;
     margin-bottom:  8px;
@@ -65,7 +65,7 @@ input[type="password_registro"] {
 input[type="txt_registro"] {
     border: 1px solid #3cb371;
     width: 98%;
-    height: 25px;
+    height: 30px;
     border-radius: 5px;
     padding-left: 10px;
     margin-bottom:  8px;

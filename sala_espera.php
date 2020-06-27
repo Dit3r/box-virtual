@@ -83,7 +83,6 @@ $uname=$_SESSION['username'];
 	</div>
 	<!-- End top bar -->
 	
-    
     <!-- Start About us -->
 	<div id="about" class="about-box">
 		<div class="about-a1">
@@ -100,8 +99,16 @@ $uname=$_SESSION['username'];
 						<div class="row align-items-center about-main-info">
 							<div class="col-lg-6 col-md-6 col-sm-12" >
 								<h2> Bienvenido a Box Virtual </h2>
-								<p> Aqui un texto...</p>
-								<a href="#" class="new-btn-d br-2">Ir a otra pagina de info</a>
+                                <br>
+								<p class="text-info"> 
+                                    Bienvenido a la Sala de espera del Box Virtual,
+                                    espera un momento por favor... 
+                                    Pronto se habilitará automáticamente tu Videollamada.
+                                    Te invitamos a visitar el contenido de la Página.</p>
+                                <br>
+                                <br>
+                                <br>
+								<a href="https://www.minsal.cl/"  target="_blank" class="new-btn-d br-2">Información MINSAL</a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="about-m">
@@ -125,8 +132,6 @@ $uname=$_SESSION['username'];
 		</div>
 	</div>
 	<!-- End About us -->
-	
-    
 	            
     <!-- Start Home nuevo -->
 	<div id="home" class="gallery-box">
@@ -200,11 +205,8 @@ $uname=$_SESSION['username'];
 	<!-- End home nuevo-->
             
 	
-    
-
-	   
-	
-	<!-- End Contact -->
+    <br>
+    <br>
 	
 	<!-- Start Subscribe -->
 	<div class="subscribe-box">

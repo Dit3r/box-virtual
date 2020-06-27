@@ -57,63 +57,63 @@ include_once '../logger.php';
       <div class="modal-body" id="bodyForm">
         <form id="formRegistro">
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Nombres:</label>
-            <input type="txt_registro" class="form-control" id="nombres" required>
+         <!--   <label for="recipient-name" class="col-form-label">Nombres:</label> -->
+            <input type="txt_registro" class="form-control" id="nombres" onblur="ValidaColor(this.id)" required placeholder="Nombres">
           </div>
             
           <div class="form-group">
-            <label class="col-form-label">Apellido Paterno:</label>
-            <input type="txt_registro" class="form-control" id="paterno" required>
+        <!--    <label class="col-form-label">Apellido Paterno:</label> -->
+            <input type="txt_registro" class="form-control" id="paterno" onblur="ValidaColor(this.id)" required placeholder="Apellido Paterno">
           </div>
             
           <div class="form-group">
-            <label  class="col-form-label">Apellido Materno:</label>
-            <input type="txt_registro" class="form-control" id="materno" required>
+      <!--     <label  class="col-form-label">Apellido Materno:</label> -->
+            <input type="txt_registro" class="form-control" id="materno" onblur="ValidaColor(this.id)" required placeholder="Apellido Materno">
           </div>
             
           <div class="form-group">
-            <label  class="col-form-label">Rut/Dni: </label>
-            <input type="txt_registro" maxlength="10" class="form-control" id="rut" required>
+        <!--    <label  class="col-form-label">Rut/Dni: </label> -->
+            <input type="txt_registro" maxlength="10" class="form-control" id="rut" onchange="ValidaRut(this.value)" required placeholder="Rut: ej: 12345678-9">
           </div> 
             
            <div class="form-group">
-            <label  class="col-form-label">Correo:</label>
-            <input type="txt_registro" class="form-control" id="correo" required>
+        <!--    <label  class="col-form-label">Correo:</label> -->
+            <input type="txt_registro" class="form-control" id="correo"  onblur="ValidaColor(this.id)" required placeholder="Correo/Email">
             </div>
             
             <div class="form-group">
-            <label  class="col-form-label">Confirmar correo:</label>
-            <input type="txt_registro" class="form-control" id="confirma_correo" required>
+        <!--    <label  class="col-form-label">Confirmar correo:</label> -->
+            <input type="txt_registro" class="form-control" id="confirma_correo" onblur="ValidaColor(this.id)" required placeholder="Confirma Correo/Email">
             </div>
             
           <div class="form-group">
-            <label  class="col-form-label">Número Celular:</label>
-            <input type="txt_registro" class="form-control" id="celular" required>
+       <!--  <label  class="col-form-label">Número Celular:</label> -->
+            <input type="txt_registro" class="form-control" id="celular" onblur="ValidaColor(this.id)" required placeholder="Número Celular">
           </div> 
             
-         <div class="form-group">
-            <label  class="col-form-label">Número Fijo:</label>
-            <input type="txt_registro" class="form-control" id="fijo">
+          <div class="form-group"> 
+         <!--     <label  class="col-form-label">Número Fijo:</label> -->
+            <input type="txt_registro" class="form-control" id="fijo" placeholder="Número Teléfono Fijo" onblur="ValidaColor(this.id)">
           </div>
             
           <div class="form-group">
-            <label  class="col-form-label">Fecha nacimiento:</label>
-            <input type="date" class="form-control" id="fecha_nacimiento" required>
+          <!--   <label  class="col-form-label">Fecha nacimiento:</label> -->
+            <input type="date" class="form-control" id="fecha_nacimiento" required placeholder="Fecha nacimiento" onblur="ValidaColor(this.id)">
           </div>
             
             <div class="form-group">
-            <label  class="col-form-label">Direccion:</label>
-            <input type="txt_registro" class="form-control" id="direccion" required>
-           </div> 
-            
-            <div class="form-group">
-            <label  class="col-form-label">Contraseña:</label>
-            <input type="password_registro" class="form-control" id="contrasena" required>
+       <!--      <label  class="col-form-label">Direccion:</label> -->
+            <input type="txt_registro" class="form-control" id="direccion" required placeholder="Dirección" onblur="ValidaColor(this.id)">
            </div>
             
             <div class="form-group">
-            <label  class="col-form-label">Confirme Contraseña:</label>
-            <input type="password_registro" class="form-control" id="confirma_contrasena" required>
+        <!--     <label  class="col-form-label">Contraseña:</label> -->
+            <input type="password_registro" class="form-control" id="contrasena" required placeholder="Cree una Contraseña" onblur="ValidaColor(this.id)">
+           </div>
+            
+            <div class="form-group">
+         <!--    <label  class="col-form-label">Confirme Contraseña:</label> -->
+            <input type="password_registro" class="form-control" id="confirma_contrasena" required placeholder="Confirme Contraseña" onblur="ValidaColor(this.id)">
            </div> 
     
         </form>

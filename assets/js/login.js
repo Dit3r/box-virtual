@@ -45,11 +45,61 @@ $("#modal_registro").modal('show');
 
 
 
+
 function recargaForm() {
     
-  $('#bodyForm').html('<form id="formRegistro"><div class="form-group"><label for="recipient-name" class="col-form-label">Nombres:</label><input type="txt_registro" class="form-control" id="nombres" required></div><div class="form-group"><label class="col-form-label">Apellido Paterno:</label><input type="txt_registro" class="form-control" id="paterno" required></div> <div class="form-group"><label  class="col-form-label">Apellido Materno:</label><input type="txt_registro" class="form-control" id="materno" required></div><div class="form-group"><label  class="col-form-label">Rut/Dni: </label><input type="txt_registro" class="form-control" id="rut" required></div> <div class="form-group"><label  class="col-form-label">Correo:</label><input type="txt_registro" class="form-control" id="correo" required></div>  <div class="form-group"><label  class="col-form-label">Confirmar correo:</label><input type="txt_registro" class="form-control" id="confirma_correo" required></div>  <div class="form-group"><label  class="col-form-label">Número Celular:</label><input type="txt_registro" class="form-control" id="celular" required></div> <div class="form-group"><label  class="col-form-label">Número Fijo:</label><input type="txt_registro" class="form-control" id="fijo"></div><div class="form-group"><label  class="col-form-label">Fecha nacimiento:</label><input type="date" class="form-control" id="fecha_nacimiento" required></div><div class="form-group"><label  class="col-form-label">Direccion:</label><input type="txt_registro" class="form-control" id="direccion" required></div><div class="form-group"><label  class="col-form-label">Contraseña:</label><input type="password_registro" class="form-control" id="contrasena" required></div><div class="form-group"><label  class="col-form-label">Confirme Contraseña:</label><input type="password_registro" class="form-control" id="confirma_contrasena" required></div> </form>');
+  $('#bodyForm').html('<form id="formRegistro"><div class="form-group"><!--   <label for="recipient-name" class="col-form-label">Nombres:</label> --><input type="txt_registro" class="form-control" id="nombres" onblur="ValidaColor(this.id)" required placeholder="Nombres"></div><div class="form-group"><!--    <label class="col-form-label">Apellido Paterno:</label> --><input type="txt_registro" class="form-control" id="paterno" onblur="ValidaColor(this.id)" required placeholder="Apellido Paterno"></div><div class="form-group"><!-- <label  class="col-form-label">Apellido Materno:</label> --><input type="txt_registro" class="form-control" id="materno" onblur="ValidaColor(this.id)" required placeholder="Apellido Materno"></div><div class="form-group"><!--    <label  class="col-form-label">Rut/Dni: </label> --><input type="txt_registro" maxlength="10" class="form-control" id="rut" onchange="ValidaRut(this.value)" required placeholder="Rut: ej: 12345678-9"></div> <div class="form-group"><!--    <label  class="col-form-label">Correo:</label> --><input type="txt_registro" class="form-control" id="correo"  onblur="ValidaColor(this.id)" required placeholder="Correo/Email"></div><div class="form-group"><!--    <label  class="col-form-label">Confirmar correo:</label> --><input type="txt_registro" class="form-control" id="confirma_correo" onblur="ValidaColor(this.id)" required placeholder="Confirma Correo/Email"></div><div class="form-group"><!--  <label  class="col-form-label">Número Celular:</label> --><input type="txt_registro" class="form-control" id="celular" onblur="ValidaColor(this.id)" required placeholder="Número Celular"></div><div class="form-group"><!--     <label  class="col-form-label">Número Fijo:</label> --><input type="txt_registro" class="form-control" id="fijo" placeholder="Número Teléfono Fijo" onblur="ValidaColor(this.id)"></div><div class="form-group"><!--   <label  class="col-form-label">Fecha nacimiento:</label> --><input type="date" class="form-control" id="fecha_nacimiento" required placeholder="Fecha nacimiento" onblur="ValidaColor(this.id)"></div><div class="form-group"><!-- <label class="col-form-label">Direccion:</label>--><input type="txt_registro" class="form-control" id="direccion" required placeholder="Dirección" onblur="ValidaColor(this.id)"></div><div class="form-group"><!--<label  class="col-form-label">Contraseña:</label> --><input type="password_registro" class="form-control" id="contrasena" required placeholder="Cree una Contraseña" onblur="ValidaColor(this.id)"></div><div class="form-group"><!--<label  class="col-form-label">Confirme Contraseña:</label> --><input type="password_registro" class="form-control" id="confirma_contrasena" required placeholder="Confirme Contraseña" onblur="ValidaColor(this.id)"></div> </form>');
     
   }
+
+
+
+var Fn = {
+	// Valida el rut con su cadena completa "XXXXXXXX-X"
+	validaRut : function (rutCompleto) {
+		rutCompleto = rutCompleto.replace("‐","-");
+		if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rutCompleto ))
+			return false;
+		var tmp 	= rutCompleto.split('-');
+		var digv	= tmp[1]; 
+		var rut 	= tmp[0];
+		if ( digv == 'K' ) digv = 'k' ;
+		
+		return (Fn.dv(rut) == digv );
+	},
+	dv : function(T){
+		var M=0,S=1;
+		for(;T;T=Math.floor(T/10))
+			S=(S+T%10*(9-M++%6))%11;
+		return S?S-1:'k';
+	}
+}
+
+
+function ValidaColor(valor){
+    if($('#'+valor).val() == ""){
+        
+       $('#'+valor).css('border-color', 'red');
+    }else {
+        
+        $('#'+valor).css('border-color', 'green');
+    }
+}
+
+
+
+function ValidaRut(valor){
+    if(!Fn.validaRut(valor) ){
+        
+        $('#rut').focus();
+       $('#rut').css('border-color', 'red');
+    }else {
+        
+        $('#rut').css('border-color', 'green');
+    }
+    
+}
+
 
 
 function validarRegistro(){
@@ -60,6 +110,7 @@ $resp = true;
  if($('#paterno').val()==""){$resp = false; }
  if($('#materno').val()==""){$resp = false; }
  if($('#rut').val()==""){$resp = false; }
+ if(!Fn.validaRut($('#rut').val())){$resp = false;}
  if($('#correo').val()==""){$resp = false; }
  if($('#confirma_correo').val()==""){$resp = false; }    
  if($('#celular').val()==""){$resp = false; }
