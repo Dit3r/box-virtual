@@ -1,5 +1,7 @@
 ////inicio funcion loguear ////
 
+ 
+
 function login(){
         var parametros = {
                "username" : $('#username').val(),
@@ -76,52 +78,125 @@ var Fn = {
 }
 
 
+
+
+
 function ValidaColor(valor){
+     var estado = true;
     if($('#'+valor).val() == ""){
         
+        
        $('#'+valor).css('border-color', 'red');
+        
+       estado = false;
     }else {
         
         $('#'+valor).css('border-color', 'green');
+        
+        estado = true;
     }
 }
 
 
 
 function ValidaRut(valor){
+    
+     var estado = true;
     if(!Fn.validaRut(valor) ){
         
-        $('#rut').focus();
-       $('#rut').css('border-color', 'red');
+ $('#rut').css('border-color', 'red');
+   
+        
+  document.getElementById('rut').addEventListener('input', function(evt) {
+  let value = this.value.replace(/\./g, '').replace('-', '');
+  
+  if (value.match(/^(\d{2})(\d{3}){2}(\w{1})$/)) {
+    value = value.replace(/^(\d{2})(\d{3})(\d{3})(\w{1})$/, '$1$2$3-$4');
+  }
+  else if (value.match(/^(\d)(\d{3}){2}(\w{0,1})$/)) {
+    value = value.replace(/^(\d)(\d{3})(\d{3})(\w{0,1})$/, '$1$2$3-$4');
+  }
+  else if (value.match(/^(\d)(\d{3})(\d{0,2})$/)) {
+    value = value.replace(/^(\d)(\d{3})(\d{0,2})$/, '$1$2$3');
+  }
+  else if (value.match(/^(\d)(\d{0,2})$/)) {
+    value = value.replace(/^(\d)(\d{0,2})$/, '$1$2');
+  }
+  this.value = value;
+    
+    
+});
+        
+ estado = false;  
+        
     }else {
         
         $('#rut').css('border-color', 'green');
+        
+        estado = true;
     }
+    
+    return estado;
     
 }
 
 
 
+function revisa_email(valor){
+     var estado = true;
+    
+    var re=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+	if(!re.exec(valor)){
+		$('#correo').css('border-color', 'red'); 
+        estado = false;
+	}
+    else{
+	    $('#correo').css('border-color', 'green'); 
+         estado = true;
+	}
+    
+    return estado;
+}
+
+
+    
+function ValidateUSPhoneNumber(phoneNumber) {
+    var estado = true;
+     var regExp = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$/;
+     var phone = phoneNumber.match(regExp);
+     if (!phone) {
+       $('#celular').css('border-color', 'red'); 
+         estado = false;
+     }
+    else{
+       $('#celular').css('border-color', 'green'); 
+        estado = true;
+     }
+    return estado;
+}
+
+
 function validarRegistro(){
-    
-$resp = true;    
-    
- if($('#nombres').val()==""){$resp = false;  }
- if($('#paterno').val()==""){$resp = false; }
- if($('#materno').val()==""){$resp = false; }
- if($('#rut').val()==""){$resp = false; }
- if(!Fn.validaRut($('#rut').val())){$resp = false;}
- if($('#correo').val()==""){$resp = false; }
- if($('#confirma_correo').val()==""){$resp = false; }    
- if($('#celular').val()==""){$resp = false; }
- if($('#fijo').val()==""){$resp = false; }
- if($('#fecha_nacimiento').val()=="") {$resp = false; }         
- if($('#direccion').val()==""){$resp = false; }
- if($('#contrasena').val()==""){$resp = false; }
- if($('#confirma_contrasena').val()=="") {$resp = false; }
- if(   ( $('#contrasena').val() != $('#confirma_contrasena').val() ) ){ $resp = false; }
- if(   ( $('#correo').val() != $('#confirma_correo').val() ) ){ $resp = false; }    
- return $resp;    
+ var estado = true;
+ 
+ if($('#nombres').val().length <= 1){estado = false; }
+ if($('#paterno').val().length <= 1){estado = false;}
+ if($('#materno').val().length <= 1){estado = false;}
+ if($('#rut').val().length <= 1){estado = false; }
+ if(!ValidaRut($('#rut').val())){estado = false;}
+ if($('#correo').val().length <= 1){estado = false; }
+ if(!revisa_email($('#correo').val())){ estado = false; }  
+ if($('#confirma_correo').val().length <= 1){estado = false; }  
+ if($('#celular').val().length <= 1){estado = false;}
+ if(!ValidateUSPhoneNumber($('#celular').val())){estado = false;}
+ if($('#fijo').val().length<= 1){estado = false; }
+ if($('#fecha_nacimiento').val().length <= 1) {estado = false; }         
+ if($('#direccion').val().length <= 1){estado = false; }
+ if($('#contrasena').val().length <= 1){estado = false; }
+ if($('#confirma_contrasena').val().length <= 1) {estado = false; }
+ if(   ( $('#contrasena').val() != $('#confirma_contrasena').val() ) ){ estado = false; }
+ if(   ( $('#correo').val() != $('#confirma_correo').val() ) ){ estado = false;}    
+ return estado;    
 
     
 }
@@ -195,7 +270,7 @@ function registroPaciente(){
         
                    $("#fracaso").modal('show');
           
-                   $("#datovacio").html("El formulario presenta datos invalidos o vacios");
+                   $("#datovacio").html("El formulario presenta datos vacíos,incorrectos o datos de confirmación no coinciden.");
                         
                     $("#procesa_registro").html('<button type="button" class="form-control" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="button" onclick="registroPaciente()" class="btn btn-primary">Registrar</button>');  
         

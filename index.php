@@ -73,12 +73,12 @@ include_once '../logger.php';
             
           <div class="form-group">
         <!--    <label  class="col-form-label">Rut/Dni: </label> -->
-            <input type="txt_registro" maxlength="10" class="form-control" id="rut" onchange="ValidaRut(this.value)" required placeholder="Rut: ej: 12345678-9">
+            <input type="txt_registro" maxlength="10" class="form-control" id="rut" onkeyup="ValidaRut(this.value)" required placeholder="Rut: ej: 12345678-9">
           </div> 
             
            <div class="form-group">
         <!--    <label  class="col-form-label">Correo:</label> -->
-            <input type="txt_registro" class="form-control" id="correo"  onblur="ValidaColor(this.id)" required placeholder="Correo/Email">
+            <input type="txt_registro" class="form-control" id="correo" onkeyup="revisa_email(this.value)"  required placeholder="Correo/Email">
             </div>
             
             <div class="form-group">
@@ -88,7 +88,7 @@ include_once '../logger.php';
             
           <div class="form-group">
        <!--  <label  class="col-form-label">Número Celular:</label> -->
-            <input type="txt_registro" class="form-control" id="celular" onblur="ValidaColor(this.id)" required placeholder="Número Celular">
+            <input type="txt_registro" class="form-control" id="celular" maxlength="12" onkeyup="ValidateUSPhoneNumber(this.value)" required placeholder="Número Celular ej: +56981234567">
           </div> 
             
           <div class="form-group"> 
