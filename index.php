@@ -93,7 +93,7 @@ include_once '../logger.php';
             
           <div class="form-group"> 
          <!--     <label  class="col-form-label">Número Fijo:</label> -->
-            <input type="txt_registro" class="form-control" id="fijo" placeholder="Número Teléfono Fijo" onblur="ValidaColor(this.id)">
+            <input type="txt_registro" class="form-control" id="fijo" placeholder="Número Teléfono Fijo ej: 2123456" onkeypress="ValidaFijo(this.value)" maxlength="9">
           </div>
             
           <div class="form-group">

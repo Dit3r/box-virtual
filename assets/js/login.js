@@ -176,6 +176,23 @@ function ValidateUSPhoneNumber(phoneNumber) {
 }
 
 
+function ValidaFijo(valor) {
+    var estado = true;
+     var regExp = /^[0-9]+$/;
+     var phone = valor.match(regExp);
+     if (!phone) {
+       $('#fijo').css('border-color', 'red'); 
+         estado = false;
+     }
+    else{
+       $('#fijo').css('border-color', 'green'); 
+        estado = true;
+     }
+    return estado;
+}
+
+
+
 function validarRegistro(){
  var estado = true;
  
@@ -190,6 +207,7 @@ function validarRegistro(){
  if($('#celular').val().length <= 1){estado = false;}
  if(!ValidateUSPhoneNumber($('#celular').val())){estado = false;}
  if($('#fijo').val().length<= 1){estado = false; }
+ if(!ValidaFijo($('#fijo').val())){estado = false;}
  if($('#fecha_nacimiento').val().length <= 1) {estado = false; }         
  if($('#direccion').val().length <= 1){estado = false; }
  if($('#contrasena').val().length <= 1){estado = false; }
