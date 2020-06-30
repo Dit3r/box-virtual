@@ -90,7 +90,7 @@ $uname=$_SESSION['username'];
 				<div class="row">
 					<div class="col-lg-12" id>
 						<div class="title-box" id="loader">
-							<h2>Box Virtual</h2>
+							<h2>Sala de espera</h2>
 						</div>
 					</div>
 				</div>
@@ -98,7 +98,7 @@ $uname=$_SESSION['username'];
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="row align-items-center about-main-info">
 							<div class="col-lg-6 col-md-6 col-sm-12" >
-								<h2> Bienvenido a Box Virtual </h2>
+								<h2> Bienvenido a Sala de espera</h2>
                                 <br>
 								<p class="text-info"> 
                                     Bienvenido a la Sala de espera del Box Virtual,
@@ -208,7 +208,9 @@ $uname=$_SESSION['username'];
     <br>
     <br>
 	
+    
 	<!-- Start Subscribe -->
+    <!-- 
 	<div class="subscribe-box">
 		<div class="container">
 			<div class="row">
@@ -231,6 +233,7 @@ $uname=$_SESSION['username'];
 			</div>
 		</div>
 	</div>
+-->
 	<!-- End Subscribe -->
         
     
@@ -382,7 +385,7 @@ $uname=$_SESSION['username'];
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="footer-company-name"><a href="https://www.southcode.cl" target="_blank" >www.southcode.cl</a> &copy; 2020 <a href="#">Box Virtual</a></p>
+					<p class="footer-company-name">© Box Virtual 2020. Todos los derechos reservados <a href="https://www.tcline.cl" target="_blank" >www.tcline.cl</a></p>
 				</div>
 			</div>
 		</div>

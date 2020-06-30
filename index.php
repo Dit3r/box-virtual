@@ -9,6 +9,11 @@ include_once '../logger.php';
 <head>
 	<title>Login</title>
  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+<!--    
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  -->
     
    
      <!-- Responsive CSS -->
@@ -83,7 +88,7 @@ include_once '../logger.php';
             
             <div class="form-group">
         <!--    <label  class="col-form-label">Confirmar correo:</label> -->
-            <input type="txt_registro" class="form-control" id="confirma_correo" onblur="ValidaColor(this.id)" required placeholder="Confirma Correo/Email">
+            <input type="txt_registro" class="form-control" id="confirma_correo" onblur="ValidaColor(this.id)" required placeholder="Confirme Correo/Email">
             </div>
             
           <div class="form-group">
@@ -98,7 +103,8 @@ include_once '../logger.php';
             
           <div class="form-group">
           <!--   <label  class="col-form-label">Fecha nacimiento:</label> -->
-            <input type="date" class="form-control" id="fecha_nacimiento" required placeholder="Fecha nacimiento" onblur="ValidaColor(this.id)">
+            <input type="date" class="form-control" id="fecha_nacimiento" required placeholder="Fecha nacimiento" onblur="ValidaColor(this.id)" >
+    
           </div>
             
             <div class="form-group">

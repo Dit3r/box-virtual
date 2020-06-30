@@ -81,7 +81,7 @@ function llamarBox(){
               }
               
               else{
-                  $("#loader").html("<h2>Box Virtual</h2> ");      
+                  $("#loader").html("<h2>Sala de espera</h2>");      
                   //$("#modal_loader").modal('hide');    
                   // $("#fracaso").modal('show');
                    //$("#datovacio").html(response.data);
@@ -90,7 +90,7 @@ function llamarBox(){
         
     },
           error: function(jqXHR, textStatus, error) { 
-              $("#loader").html("<h2>Box Virtual</h2> ");   
+              $("#loader").html("<h2>Sala de espera</h2>");   
               
               $("#error").modal('show');
               $("#datovacioerror").html("Error en servidor de la llamada.");
