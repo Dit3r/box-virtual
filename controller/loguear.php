@@ -9,6 +9,8 @@ include_once '../logger.php';
 //$password=$_POST['password'];
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
+$lati=  $_REQUEST['lati'];
+$long=  $_REQUEST['long'];
 
 $passwordMD5=md5($password);
 //para utilizar servicio
@@ -32,6 +34,8 @@ $resp = true;
  	$_SESSION['username']= $data['nombres'];
     $_SESSION['id'] =  $data['id'];
     $_SESSION['rut'] =  $data['rut'];
+    $_SESSION['lati'] = $lati;
+    $_SESSION['long'] = $long;
      
  }
 else{
@@ -41,7 +45,7 @@ else{
 
     
       
-     $respuesta = array("resp"=> $resp);
+     $respuesta = array("resp"=> $resp , "ubicacion" => $lati);
 
      echo json_encode($respuesta); 
 //}

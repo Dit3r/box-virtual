@@ -44,7 +44,11 @@ include_once '../logger.php';
 		</form>
         
         <button class="button" onclick="abrirModalRegistro()" >Registrar</button>
-           
+        
+        
+        <input  id="lati" type="hidden">
+        <input  id="long" type="hidden" >
+  
 	  </div><!--end of formbox-->
      
    
@@ -171,6 +175,28 @@ include_once '../logger.php';
   </div>
 </div>
     
+    
+      <!--modal error ubicacion -->
+<div class="modal fade" id="error_ubicacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+      </div>
+      <div id="mesje_ubicacion" class="modal-body">   
+      <p>Para ingresar se requiere su ubicación,por favor recargue la pàgina y permita el acceso.</p>       
+     <br>  
+     <img src="assets/images/permisos_ubicacion.jpg" >      
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" onclick="recargar()" class="btn btn-warning" data-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+        
+    
     <!--modal error -->
 <div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -211,8 +237,7 @@ include_once '../logger.php';
 	<script src="assets/js/images-loded.min.js"></script>	
     <script src="assets/js/custom.js"></script>
     
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCeYgQzX2rRv91Qm2oJyW4y_32Yn9S5cDM&sensor=false"></script>
     
-        
-  
        
 </html>

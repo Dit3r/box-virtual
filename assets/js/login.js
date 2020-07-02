@@ -5,7 +5,9 @@
 function login(){
         var parametros = {
                "username" : $('#username').val(),
-               "password" : $('#password').val()
+               "password" : $('#password').val(),
+               "lati" : $('#lati').val(),
+               "long"  : $('#long').val()
         };
         $.ajax({
                 data:  parametros, //datos que se envian a traves de ajax
@@ -17,6 +19,10 @@ function login(){
                 dataType: "json",
                 success:  function (response) {
                     //una vez que el archivo recibe el request lo procesa y lo devuelve en json que se parsea
+                    
+                    if(response.ubicacion != 0){
+                     
+                    
                     if(response.resp){
                    
                         window.location.href = "sala_espera.php";
@@ -27,6 +33,13 @@ function login(){
                         $("#procesa_login").html('<input type="submit" onclick="login()" value="Ingresar" id="btn_login" >');
                            
                     }
+                    
+                }
+                   else{
+                           $("#error_ubicacion").modal('show');
+                           $("#procesa_login").html('<input type="submit" onclick="login()" value="Ingresar" id="btn_login" >');
+            
+                         }
                         
                 },
               error:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
@@ -298,13 +311,83 @@ function registroPaciente(){
           
                    $("#datovacio").html("El formulario presenta datos vacíos,incorrectos o datos de confirmación no coinciden.");
                         
-                    $("#procesa_registro").html('<button type="button" class="form-control" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="button" onclick="registroPaciente()" class="btn btn-primary">Registrar</button>');  
-        
+                    $("#procesa_registro").html('<button type="button" class="form-control" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="button" onclick="registroPaciente()" class="btn btn-primary">Registrar</button>');   
                    
         }
     
       
 }
+
+
+ 
+
+var options = {
+  enableHighAccuracy: true,
+  timeout: 10000,
+  maximumAge: 0
+};
+
+function success(pos) {
+  var crd = pos.coords;
+
+     var long = document.getElementById('long');
+     var lati = document.getElementById('lati');
+    
+    long.value=crd.longitude;
+    lati.value= crd.latitude;
+    
+};
+
+function error(err) {
+            
+    switch(err.code) {
+            
+         case err.PERMISSION_DENIED:
+            // El usuario denegó el permiso para la Geolocalización.
+            var long = document.getElementById('long');
+            var lati = document.getElementById('lati');
+            long.value= 0;
+            lati.value= 0;
+            $("#error_ubicacion").modal('show');
+            $("#mesje_ubicacion").html("<p>Usted denegó los permisos de ubicación,por favor recargue la pàgina y permita el acceso en su navegador.</p><br><img src='assets/images/permisos_ubicacion.jpg'> ");      
+            break;
+        case err.POSITION_UNAVAILABLE:
+            // La ubicación no está disponible.
+            var long = document.getElementById('long');
+            var lati = document.getElementById('lati');
+            long.value= 0;
+            lati.value= 0;
+            $("#error_ubicacion").modal('show');
+            $("#mesje_ubicacion").html("<p>Su ubicaciòn no esta disponible,revise las configuraciones de su navegador.</p>");  
+            break;
+        case err.TIMEOUT:
+            // Se ha excedido el tiempo para obtener la ubicación.
+            var long = document.getElementById('long');
+            var lati = document.getElementById('lati');
+            long.value= 0;
+            lati.value= 0;
+            $("#error_ubicacion").modal('show');
+            $("#mesje_ubicacion").html("Se terminò el tiempo para otorgar permisos de ubicación,favor recargue la página y otrogue permisos.</p><br><img   src='assets/images/permisos_ubicacion.jpg'> ");  
+            break;
+        case err.UNKNOWN_ERROR:
+            // Un error desconocido.
+            var long = document.getElementById('long');
+            var lati = document.getElementById('lati');
+            long.value= 0;
+            lati.value= 0;
+            $("#error_ubicacion").modal('show');
+            $("#mesje_ubicacion").html("Error desconocido con su ubicación.");  
+            break;
+         
+            break;
+    }
+    
+                
+};
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+
+
 
 
 

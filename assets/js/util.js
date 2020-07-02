@@ -11,6 +11,7 @@ function mostrarSalaDeEsepera(){
 }
 
 
+
 ////modal salir///////////
 function mostrarModalConfirmaSalir(){     
  $("#confirmar").modal('show');
@@ -104,6 +105,13 @@ function llamarBox(){
 
 
 
+ 
+function iraindex(){
+    
+  window.location.href = "index.php";
+    
+}
+ 
 
 
 

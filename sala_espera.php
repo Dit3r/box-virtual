@@ -5,8 +5,13 @@ include 'config/properties.php';
 
 session_start();
 $uname=$_SESSION['username'];
- if (empty($uname)) { 
+$lati= $_SESSION['lati'];
+$long= $_SESSION['long'];
+
+ if (empty($uname) || empty($lati)  || empty($long)) { 
+     
   header("Location:index.php");
+     
  }
 
 ?>
@@ -42,8 +47,10 @@ $uname=$_SESSION['username'];
     
     <link rel="stylesheet" href="assets/css/loaders.css">
     
-    
+     
 
+    
+   
 </head>
     
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
@@ -61,9 +68,9 @@ $uname=$_SESSION['username'];
                       
 				<div class="col-md-6">
                     
-					   <div class="left-top">
-						<a class="new-btn-d br-2" href="#"><span><i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Bienvenido: <?php echo "$uname"; Rut:$_SESSION['rut'] ;  ?></span></a>
-					   </div>
+				    <div class="left-top">
+				   <a class="new-btn-d br-2" href="#"><span><i class="fa fa-user-o fa-2x" aria-hidden="true"></i> Bienvenido: <?php echo "$uname"."  Rut:  ".$_SESSION['rut'] ;  ?></span></a>
+				     </div>
                     
                 </div>
                     
@@ -208,6 +215,8 @@ $uname=$_SESSION['username'];
     <br>
     <br>
 	
+   
+    
     
 	<!-- Start Subscribe -->
     <!-- 
@@ -355,6 +364,8 @@ $uname=$_SESSION['username'];
     </div>
   </div>
 </div>
+    
+    
 
     <!--- modal confirmar salir de todo---->
     <div id="confirmar" class="modal" tabindex="-1" role="dialog">
@@ -377,8 +388,7 @@ $uname=$_SESSION['username'];
   </div>
 </div>
     
-    
-        
+            
         
 	<!-- Start Footer -->
 	<footer class="footer-box">
@@ -412,10 +422,14 @@ $uname=$_SESSION['username'];
 	<script src="assets/js/images-loded.min.js"></script>	
     <script src="assets/js/custom.js"></script>
         
-   <script src="assets/js/util.js"></script>
+   <script src="assets/js/util.js"></script>   
     <!-- el id para usarlo internamente en jscript -->
     <script type="text/javascript">
      var id =   <?php echo $_SESSION['id']; ?>
+    </script>
+    
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeYgQzX2rRv91Qm2oJyW4y_32Yn9S5cDM&callback=initMap">
     </script>
 
         
