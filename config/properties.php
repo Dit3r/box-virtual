@@ -31,6 +31,8 @@ $hostValidaEstablecimiento = "https://api.mercadolibre.com/users/226384143";
 
 $hostGetPrueba="https://api.mercadolibre.com/users/226384143";
 
+$hostEnviaCoordenadas = "http://videoapsqa.boxvirtual.cl/apsvideoapi/meetings/location";
+
 
 ?>
 

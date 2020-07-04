@@ -52,6 +52,7 @@ function llamarBox(){
                 },
           success: function(response) { 
               
+              
               if(response.status == 200) {
                     
              // $("#modal_loader").modal('hide');    
