@@ -52,6 +52,7 @@ function llamarBox(){
                 },
           success: function(response) { 
               
+             // alert(response.resp);
               
               if(response.status == 200) {
                     

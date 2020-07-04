@@ -67,9 +67,9 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 //execute the POST request
 $result = curl_exec($ch);
     
-//$respuesta = json_decode( $result, true );  
+$respuesta = json_decode( $result, true );  
     
-$result=  $result['status'];  
+$resp=  $respuesta['status']." ".$respuesta['message']." ".$respuesta['data'];
     
     
 //close cURL resource
