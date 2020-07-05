@@ -48,7 +48,7 @@ $ch = curl_init($url);
 //setup request to send json via POST
 $datos = array(   
     "rut"       =>  $id,
-    "meetingId" =>  $data,
+    "meetingId" =>  substr($data,11),
     "latitud"   =>  $_SESSION['lati'],
     "longitud"  =>  $_SESSION['long']
 );
@@ -69,7 +69,9 @@ $result = curl_exec($ch);
     
 $respuesta = json_decode( $result, true );  
     
-$resp=  $respuesta['status']." ".$respuesta['message']." ".$respuesta['data'];
+//$resp=  $respuesta['status']." ".$respuesta['message']." ".$respuesta['data'];
+    
+//$resp = $payload;
     
     
 //close cURL resource
@@ -79,7 +81,7 @@ curl_close($ch);
     
 } else {
     
-    $resp = 500;
+    $resp = $status;
 }
 
 
