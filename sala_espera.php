@@ -118,7 +118,11 @@ $long= $_SESSION['long'];
 								<a href="https://www.minsal.cl/"  target="_blank" class="new-btn-d br-2">Información MINSAL</a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-12">
-								<div class="about-m">
+                                <div class="title-box" id="loader">
+							    <h2>Hospitales Cercanos</h2>
+						        </div>
+								<div class="about-m" id="mapa" style="width: 500px; height: 400px;" onload="initMap()">
+                                    <!--
 									<ul id="banner">
 										<li>
 											<img src="assets/images/home1.jpg" alt="">
@@ -129,7 +133,7 @@ $long= $_SESSION['long'];
 										<li>
 											<img src="assets/images/home3.jpg" alt="">
 										</li>
-									</ul>
+									</ul> -->
 								</div>
 							</div>
 						</div>
@@ -157,7 +161,7 @@ $long= $_SESSION['long'];
 				<div class="col-md-6" id="div_paso1">
 					<div class="blog-inner">
                         
-                     <iframe  sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox" frameborder="0" aria-label="YouTube Video, SÕNTOMAS CORONAVIRUS - Hazlo por ti y por todos #CuidemonosEntreTodos" src="https://www.youtube.com/embed/TpbCKzw4k60" allowfullscreen>
+                     <iframe  frameborder="0" aria-label="YouTube Video, SÕNTOMAS CORONAVIRUS - Hazlo por ti y por todos #CuidemonosEntreTodos" src="https://www.youtube.com/embed/TpbCKzw4k60" allowfullscreen>
                      </iframe>
                         
 					</div>
@@ -168,7 +172,7 @@ $long= $_SESSION['long'];
 					<div class="blog-inner">
                          
                         
-                        <iframe  sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox" frameborder="0" aria-label="YouTube Video, PREVENCI”N CORONAVIRUS - Hazlo por ti y por todos #CuidemonosEntreTodos" src="https://www.youtube.com/embed/xsk8VS5EsR4" allowfullscreen>
+                        <iframe   frameborder="0" aria-label="YouTube Video, PREVENCI”N CORONAVIRUS - Hazlo por ti y por todos #CuidemonosEntreTodos" src="https://www.youtube.com/embed/xsk8VS5EsR4" allowfullscreen>
                         </iframe>
                         
 					</div>
@@ -186,7 +190,7 @@ $long= $_SESSION['long'];
 				<div class="col-md-6" id="div_paso3" >
 					<div class="blog-inner">
                         
-                        <iframe  sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox" frameborder="0" aria-label="YouTube Video, AISLAMIENTO DOMICILIARIO ñ Hazlo por ti y por todos #CuidÈmonosEntreTodos" src="https://www.youtube.com/embed/TUt3CrW_R-4" allowfullscreen>
+                        <iframe  frameborder="0" aria-label="YouTube Video, AISLAMIENTO DOMICILIARIO ñ Hazlo por ti y por todos #CuidÈmonosEntreTodos" src="https://www.youtube.com/embed/TUt3CrW_R-4" allowfullscreen>
                         </iframe>
                         
 					</div>
@@ -195,7 +199,7 @@ $long= $_SESSION['long'];
                 <div class="col-md-6" id="div_paso4">
                     <div class="blog-inner">
 				
-                     <iframe  sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox" frameborder="0" aria-label="YouTube Video, Aislamiento Domiciliario - Hazlo por ti y por todos #CuidÈmonosEntreTodos" src="https://www.youtube.com/embed/2RmM42xwxgM" allowfullscreen>
+                     <iframe  frameborder="0" aria-label="YouTube Video, Aislamiento Domiciliario - Hazlo por ti y por todos #CuidÈmonosEntreTodos" src="https://www.youtube.com/embed/2RmM42xwxgM" allowfullscreen>
                      </iframe>
                     </div>
 				</div>
@@ -210,11 +214,55 @@ $long= $_SESSION['long'];
         
 	</div>
 	<!-- End home nuevo-->
+    
+    
+   
+    
+    <!-- mapa -->
+     <!--
+	<div id="team" class="team-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title-box">
+						<h2>Mapas</h2>
+						<p>Encuentra lugares cercanos </p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+             
+
+                <div class="col-md-4 col-sm-6">
+                   
+                </div>
+                
+                   <div class="col-md-4 col-sm-6">
+                    <div  id="mapa" style="width: 450px; height: 350px;" onload="initMap()">
+                    
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  
+                </div>  
+
+            </div>
+			
+		</div>
+	</div>
+    
+    -->
+	
+  
+	<!-- End mapa -->
+    
+    
+    
             
 	
-    <br>
-    <br>
-	
+   
    
     
     
@@ -246,7 +294,12 @@ $long= $_SESSION['long'];
 	<!-- End Subscribe -->
         
     
-    
+    <br>
+    <br>
+	
+    <br>
+    <br>
+	
     
     
     <!-- modal  sector sala de espera--->
@@ -427,11 +480,11 @@ $long= $_SESSION['long'];
     <script type="text/javascript">
      var id =   <?php echo $_SESSION['id']; ?>
     </script>
+    <script type="text/javascript"  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqfTFz8PwaSWaXuzQ2zSLszOuA6smq6ww&libraries=places&callback=initMap"></script>
     
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeYgQzX2rRv91Qm2oJyW4y_32Yn9S5cDM&callback=initMap">
-    </script>
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuPYSDJb1yjHV_xyyDyd1ch5O2YHLoGBs&libraries=places"></script>-->
+    
 
-        
-</body>
+    </body>
+
 </html>
