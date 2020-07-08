@@ -117,9 +117,8 @@ function iraindex(){
 
 
 
-
 var map;
- var infowindow; 
+var infowindow; 
 var myLatlng;
 
  function initMap()
@@ -129,13 +128,17 @@ var myLatlng;
 
    lat = pos.coords.latitude;
    lon = pos.coords.longitude;
+   altitude  = pos.coords.altitude;     
+   accuracy = pos.coords.accuracy;
+   altitudeAccuracy = pos.coords.altitudeAccuracy;
+   heading   = pos.coords.heading;    
 
-    myLatlng = new google.maps.LatLng(lat, lon);
+   myLatlng = new google.maps.LatLng(lat,lon,altitude,accuracy,altitudeAccuracy,heading);
 
    var mapOptions = {
     center: myLatlng,
     zoom: 15,
-   // navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: true
     

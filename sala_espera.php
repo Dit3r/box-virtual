@@ -106,22 +106,28 @@ $long= $_SESSION['long'];
 						<div class="row align-items-center about-main-info">
 							<div class="col-lg-6 col-md-6 col-sm-12" >
 								<h2> Bienvenido a Sala de espera</h2>
+                                
                                 <br>
-								<p class="text-info"> 
-                                    Bienvenido a la Sala de espera del Box Virtual,
-                                    espera un momento por favor... 
-                                    Pronto se habilitará automáticamente tu Videollamada.
-                                    Te invitamos a visitar el contenido de la Página.</p>
+            
+								<p class="text-primary">   ¡ Bienvenido a la Sala de espera del Box Virtual !</p>
+                                
+                                <p class="text-primary">   Espere un momento por favor... </p>
+                                
+                                <p class="text-primary">   Pronto se habilitará automáticamente su Videollamada.</p>
+                                
+                                <p class="text-primary">   Le invitamos a visitar el contenido de la Página.</p>
+                                
+                                <p class="text-primary">   Puede revisar los Hospitales cercanos a su ubicación</p>
+                                
+                                <p class="text-primary">   y videos que pueden ser útiles para protegerse del COVID-19.</p>
                                 <br>
                                 <br>
                                 <br>
 								<a href="https://www.minsal.cl/"  target="_blank" class="new-btn-d br-2">Información MINSAL</a>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-12">
-                                <div class="title-box" id="loader">
-							    <h2>Hospitales Cercanos</h2>
-						        </div>
-								<div class="about-m" id="mapa" style="width: 500px; height: 400px;" onload="initMap()">
+							    <h3 class="text-dark">Hospitales Cercanos</h3>
+								<div class="about-m" id="mapa" style="width: 600px; height:540px;" onload="initMap()">
                                     <!--
 									<ul id="banner">
 										<li>
