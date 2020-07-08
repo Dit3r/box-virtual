@@ -119,7 +119,8 @@ function iraindex(){
 
 
 var map;
- var infowindow;
+ var infowindow; 
+var myLatlng;
 
  function initMap()
  {
@@ -129,25 +130,29 @@ var map;
    lat = pos.coords.latitude;
    lon = pos.coords.longitude;
 
-   var myLatlng = new google.maps.LatLng(lat, lon);
+    myLatlng = new google.maps.LatLng(lat, lon);
 
    var mapOptions = {
     center: myLatlng,
     zoom: 15,
+   // navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    mapTypeControl: true     
+    mapTypeControl: true
+    
    };
 
    map = new google.maps.Map(document.getElementById("mapa"),  mapOptions);
 
    // Creamos el infowindow
    infowindow = new google.maps.InfoWindow();
-
+       
+       
+    
    // Especificamos la localización, el radio y el tipo de lugares que queremos obtener
    var request = {
      location: myLatlng,
      radius: 3000,
-     types: ['hospital']
+     types: ['hospital'] 
    };
 
    // Creamos el servicio PlaceService y enviamos la petición.
@@ -164,20 +169,71 @@ var map;
  });
 }
 
+
  function crearMarcador(place)
  {
+ 
+  //creamos icono del marcador
+  var image = new google.maps.MarkerImage(
+  place.icon, new google.maps.Size(71, 71),
+  new google.maps.Point(0, 0), new google.maps.Point(17, 34),
+  new google.maps.Size(25, 25));
+     
    // Creamos un marcador
    var marker = new google.maps.Marker({
-     map: map,
-     position: place.geometry.location
+    map: map,
+    position: place.geometry.location,
+    icon : image ,
+    //draggable: true,
+    animation: google.maps.Animation.DROP,
+    cursor: 'default'
    });
 
+     
  // Asignamos el evento click del marcador
-   google.maps.event.addListener(marker, 'click', function() {
+   google.maps.event.addListener(marker,'click', function() {
      infowindow.setContent(place.name);
      infowindow.open(map, this);
    });
+     
+     
+     
+      //creamos icono del marcador 2
+  var image2 = new google.maps.MarkerImage(
+  myLatlng.icon, new google.maps.Size(71, 71),
+  new google.maps.Point(0, 0), new google.maps.Point(17, 34),
+  new google.maps.Size(25, 25));
+     
+ 
+   // Creamos un marcador 2
+   var marker2 = new google.maps.Marker({
+    map: map,
+    position: myLatlng,  
+    //icon : image2 ,
+    animation: google.maps.Animation.DROP,
+    cursor: 'default',
+    title : "Mi Ubicación"
+   });
+
+     
+ // Asignamos el evento click del marcador 2
+   google.maps.event.addListener(marker2,'click', function() {
+     infowindow.setContent("Mi ubicación");
+     infowindow.open(map, this);
+   });
+     
+       
    }
+
+
+
+
+
+
+
+
+
+
 
 
 
