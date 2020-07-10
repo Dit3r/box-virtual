@@ -124,17 +124,20 @@ var myLatlng;
  function initMap()
  {
  // Creamos un mapa con las coordenadas actuales
-   navigator.geolocation.getCurrentPosition(function(pos) {
+  navigator.geolocation.getCurrentPosition(function(pos) {
+   
 
    lat = pos.coords.latitude;
    lon = pos.coords.longitude;
    altitude  = pos.coords.altitude;     
    accuracy = pos.coords.accuracy;
    altitudeAccuracy = pos.coords.altitudeAccuracy;
-   heading   = pos.coords.heading;    
+   heading   = pos.coords.heading;
+   times = pos.timestamp ;      
 
-   myLatlng = new google.maps.LatLng(lat,lon,altitude,accuracy,altitudeAccuracy,heading);
-
+   myLatlng = new google.maps.LatLng(lat,lon,accuracy,times,altitude,altitudeAccuracy,heading);
+       
+      
    var mapOptions = {
     center: myLatlng,
     zoom: 15,

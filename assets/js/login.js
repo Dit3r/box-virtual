@@ -329,7 +329,10 @@ var options = {
 
 function success(pos) {
   var crd = pos.coords;
-
+  var times = pos.timestamp;
+  var altitud = pos.coords.altitude;	
+  var exactitud = pos.coords.accuracy;    
+      
      var long = document.getElementById('long');
      var lati = document.getElementById('lati');
     
