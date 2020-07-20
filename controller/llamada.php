@@ -50,7 +50,8 @@ $datos = array(
     "rut"       =>  $id,
     "meetingId" =>  substr($data,11),
     "latitud"   =>  $_SESSION['lati'],
-    "longitud"  =>  $_SESSION['long']
+    "longitud"  =>  $_SESSION['long'],
+    "direccion" =>  $_SESSION['direccion']
 );
     
 $payload = json_encode($datos);

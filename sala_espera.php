@@ -7,6 +7,7 @@ session_start();
 $uname=$_SESSION['username'];
 $lati= $_SESSION['lati'];
 $long= $_SESSION['long'];
+$direccion = $_SESSION['direccion'];
 
  if (empty($uname) || empty($lati)  || empty($long)) { 
      

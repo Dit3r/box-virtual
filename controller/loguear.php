@@ -34,6 +34,7 @@ $resp = true;
  	$_SESSION['username']= $data['nombres'];
     $_SESSION['id'] =  $data['id'];
     $_SESSION['rut'] =  $data['rut'];
+    $_SESSION['direccion'] = $data['direccion'];
     $_SESSION['lati'] = $lati;
     $_SESSION['long'] = $long;
      
